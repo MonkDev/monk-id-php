@@ -27,8 +27,19 @@ class MonkId {
   const delete = 'DELETE';
   const get = 'GET';
 
-  const api_key = '68813a03580410a2ca07581a96d36872';
-  const URL = 'https://id.monkdev.com';
+  const EMAIL = 'user[email]';
+  const PASSWORD = 'user[password]';
+  const AUTH_TOKEN = 'user[authentication_token]';
+
+  public static $url = 'https://id.monkdev.com';
+  public static $request;
+
+  public static function add($key, $value) {
+    if ($key == '') {
+      return false;
+    }
+    self::$request[$key] = $value;
+  }
 
   // The following methods do not require a user authentication token.
 
@@ -38,16 +49,16 @@ class MonkId {
   //     password: New password for this user
   //   }
   
-  public static function register($opts) {
-    return self::api_request(self::post, '/api/users', $opts);
+  public static function register() {
+    return self::api_request(self::post, '/api/users', self::$request);
   }
 
-  public static function login($opts) {
-    return self::api_request(self::post, '/api/users/sign_in', $opts);
+  public static function login() {
+    return self::api_request(self::post, '/api/users/sign_in', self::$request);
   }
 
-  public static function send_password_reset_instructions($opts) {
-    return self::api_request(self::post, '/api/users/password', $opts);
+  public static function send_password_reset_instructions() {
+    return self::api_request(self::post, '/api/users/password', self::$request);
   }
 
   // The following methods require a user authentication token.
@@ -59,22 +70,22 @@ class MonkId {
   //     authentication_token: REQUIRED - authentication_token for this user
   //   }  
 
-  public static function update($opts) {
-    return self::api_request(self::put, '/api/users', $opts);
+  public static function update() {
+    return self::api_request(self::put, '/api/users', self::$request);
   }
 
-  public static function status($opts) {
-    return self::api_request(self::post, '/api/users/status', $opts);
+  public static function status() {
+    return self::api_request(self::post, '/api/users/status', self::$request);
   }
 
-  public static function logout($opts) {
-    return self::api_request(self::delete, '/api/users/sign_out', $opts);
+  public static function logout() {
+    return self::api_request(self::delete, '/api/users/sign_out', self::$request);
   }
 
   private function api_request($method, $path, $opts) {
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, self::URL . $path);
+    curl_setopt($ch, CURLOPT_URL, self::$url . $path);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     switch ($method) {
