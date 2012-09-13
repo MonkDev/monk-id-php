@@ -16,10 +16,11 @@ Requirements
 Installation
 ------------
 
-Copy _MonkId.php_ to your codebase (perhaps to the _vendor_ directory) and add
-to your autoloader or `require` directly. Then copy _monkid.sample.ini_ to your
-_config_ directory and add your API key, saving the file as _monkid.ini_. See
-below on loading this config file during your app's bootstrapping.
+1.  Copy `MonkId.php` to your codebase, perhaps to the `vendor` directory.
+2.  Add the `MonkId` class to your autoloader or `require` the file directly.
+3.  Copy `monkid.sample.ini` to the config directory of your codebase, replace
+    the API key with your own, and save the file as `monkid.ini` (or whatever).
+4.  Load the config file (described below) during your app's bootstrapping.
 
 Usage
 -----
@@ -33,7 +34,7 @@ easiest way of doing this is to load an ini config file:
 
     MonkId::loadConfig('/path/to/monkid.ini', 'development');
 
-This file should follow the same syntax as your _php.ini_ and contain the
+This file should follow the same syntax as your `php.ini` and contain the
 following values:
 
     [development]
