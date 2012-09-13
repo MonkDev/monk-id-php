@@ -13,6 +13,14 @@ Requirements
 *   [cURL support](http://us.php.net/manual/en/curl.setup.php) (usually
     compiled with PHP by default)
 
+Installation
+------------
+
+Copy _MonkId.php_ to your codebase (perhaps to the _vendor_ directory) and add
+to your autoloader or `require` directly. Then copy _monkid.sample.ini_ to your
+_config_ directory and add your API key, saving the file as _monkid.ini_. See
+below on loading this config file during your app's bootstrapping.
+
 Usage
 -----
 
