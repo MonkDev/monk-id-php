@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a10" title="">
+  <file path="MonkId.php" hash="203bcc2f099fbfbad4fb6dc06c19a740" package="Default">
+    <class final="false" abstract="false" namespace="global" line="12" package="MonkId">
+      <extends/>
+      <name>MonkId</name>
+      <full_name>\MonkId</full_name>
+      <docblock line="3">
+        <description><![CDATA[PHP client for Monk ID.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="3" name="author" description="Justin Stayton &lt;jstayton@monkdevelopment.com&gt;"/>
+        <tag line="3" name="copyright" description="Copyright 2012 by Monk Development, Inc."/>
+        <tag line="3" name="license" description="http://en.wikipedia.org/wiki/MIT_License MIT License"/>
+        <tag line="3" name="package" description="MonkId"/>
+        <tag line="3" name="version" description="0.2.0"/>
+      </docblock>
+      <constant namespace="global" line="17" package="MonkId">
+        <name>AUTH_TOKEN</name>
+        <full_name>AUTH_TOKEN</full_name>
+        <value><![CDATA['authentication_token']]></value>
+        <docblock line="14">
+          <description><![CDATA[Authentication token field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="22" package="MonkId">
+        <name>CONFIRMED_AT</name>
+        <full_name>CONFIRMED_AT</full_name>
+        <value><![CDATA['confirmed_at']]></value>
+        <docblock line="19">
+          <description><![CDATA[Confirmed date/time field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="27" package="MonkId">
+        <name>EMAIL</name>
+        <full_name>EMAIL</full_name>
+        <value><![CDATA['email']]></value>
+        <docblock line="24">
+          <description><![CDATA[Email field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="32" package="MonkId">
+        <name>LAST_LOG_IN_AT</name>
+        <full_name>LAST_LOG_IN_AT</full_name>
+        <value><![CDATA['last_sign_in_at']]></value>
+        <docblock line="29">
+          <description><![CDATA[Last log in date/time field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="37" package="MonkId">
+        <name>LOGGED_IN</name>
+        <full_name>LOGGED_IN</full_name>
+        <value><![CDATA['signed_in']]></value>
+        <docblock line="34">
+          <description><![CDATA[Logged in date/time field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="42" package="MonkId">
+        <name>LOGGED_OUT_AT</name>
+        <full_name>LOGGED_OUT_AT</full_name>
+        <value><![CDATA['logged_out_at']]></value>
+        <docblock line="39">
+          <description><![CDATA[Logged out date/time field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="47" package="MonkId">
+        <name>ONE_TIME_TOKEN</name>
+        <full_name>ONE_TIME_TOKEN</full_name>
+        <value><![CDATA['one_time_token']]></value>
+        <docblock line="44">
+          <description><![CDATA[One time token field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="52" package="MonkId">
+        <name>PASSWORD</name>
+        <full_name>PASSWORD</full_name>
+        <value><![CDATA['password']]></value>
+        <docblock line="49">
+          <description><![CDATA[Password field of `user` object in API requests/responses.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="57" package="MonkId">
+        <name>STATUS_UNKNOWN_ERROR</name>
+        <full_name>STATUS_UNKNOWN_ERROR</full_name>
+        <value><![CDATA[-1]]></value>
+        <docblock line="54">
+          <description><![CDATA[An unknown error occurred.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="62" package="MonkId">
+        <name>STATUS_SUCCESS</name>
+        <full_name>STATUS_SUCCESS</full_name>
+        <value><![CDATA[0]]></value>
+        <docblock line="59">
+          <description><![CDATA[Request successful.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="67" package="MonkId">
+        <name>STATUS_INVALID_EMAIL</name>
+        <full_name>STATUS_INVALID_EMAIL</full_name>
+        <value><![CDATA[1]]></value>
+        <docblock line="64">
+          <description><![CDATA[Invalid email address.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="72" package="MonkId">
+        <name>STATUS_EMAIL_EXISTS</name>
+        <full_name>STATUS_EMAIL_EXISTS</full_name>
+        <value><![CDATA[2]]></value>
+        <docblock line="69">
+          <description><![CDATA[Email address already exists.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="77" package="MonkId">
+        <name>STATUS_INVALID_PASSWORD</name>
+        <full_name>STATUS_INVALID_PASSWORD</full_name>
+        <value><![CDATA[3]]></value>
+        <docblock line="74">
+          <description><![CDATA[Invalid password.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="82" package="MonkId">
+        <name>STATUS_INVALID_PASSWORD_SHORT</name>
+        <full_name>STATUS_INVALID_PASSWORD_SHORT</full_name>
+        <value><![CDATA[4]]></value>
+        <docblock line="79">
+          <description><![CDATA[Invalid password, cannot be less than six characters.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="87" package="MonkId">
+        <name>STATUS_INVALID_PASSWORD_BLANK</name>
+        <full_name>STATUS_INVALID_PASSWORD_BLANK</full_name>
+        <value><![CDATA[5]]></value>
+        <docblock line="84">
+          <description><![CDATA[Invalid password, cannot be blank.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="92" package="MonkId">
+        <name>HTTP_DELETE</name>
+        <full_name>HTTP_DELETE</full_name>
+        <value><![CDATA['DELETE']]></value>
+        <docblock line="89">
+          <description><![CDATA[DELETE method for HTTP requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="97" package="MonkId">
+        <name>HTTP_GET</name>
+        <full_name>HTTP_GET</full_name>
+        <value><![CDATA['GET']]></value>
+        <docblock line="94">
+          <description><![CDATA[GET method for HTTP requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="102" package="MonkId">
+        <name>HTTP_POST</name>
+        <full_name>HTTP_POST</full_name>
+        <value><![CDATA['POST']]></value>
+        <docblock line="99">
+          <description><![CDATA[POST method for HTTP requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="global" line="107" package="MonkId">
+        <name>HTTP_PUT</name>
+        <full_name>HTTP_PUT</full_name>
+        <value><![CDATA['PUT']]></value>
+        <docblock line="104">
+          <description><![CDATA[PUT method for HTTP requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </constant>
+      <property final="false" static="true" visibility="private" line="114" namespace="global" package="Default">
+        <name>$config</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="109">
+          <description><![CDATA[Config to use across all requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="109" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="125" package="MonkId">
+        <name>loadConfig</name>
+        <full_name>loadConfig</full_name>
+        <docblock line="116">
+          <description><![CDATA[Load an ini config from a file to use across all requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="116" name="link" description="http://php.net/manual/en/function.parse-ini-file.php" link="http://php.net/manual/en/function.parse-ini-file.php"/>
+          <tag line="116" name="link" description="http://en.wikipedia.org/wiki/INI_file" link="http://en.wikipedia.org/wiki/INI_file"/>
+          <tag line="116" name="param" description="path to the config file to load" type="string" variable="$path">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="116" name="param" description="environment name within the config to load" type="string" variable="$environment">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="116" name="return" description="true if loaded, false if failed to load or no config" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="125">
+          <name>$path</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="125">
+          <name>$environment</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="144" package="MonkId">
+        <name>setConfig</name>
+        <full_name>setConfig</full_name>
+        <docblock line="137">
+          <description><![CDATA[Set a config value to use across all requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="137" name="param" description="key to set" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="137" name="param" description="value to set" type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="137" name="return" description="this class" type="\MonkId">
+            <type by_reference="false">\MonkId</type>
+          </tag>
+        </docblock>
+        <argument line="144">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="144">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="156" package="MonkId">
+        <name>getConfig</name>
+        <full_name>getConfig</full_name>
+        <docblock line="150">
+          <description><![CDATA[Get a config value that's used across all requests.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="150" name="param" description="key value to get" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="150" name="return" description="key value or null if not set" type="mixed|null">
+            <type by_reference="false">mixed</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="156">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="167" package="MonkId">
+        <name>register</name>
+        <full_name>register</full_name>
+        <docblock line="160">
+          <description><![CDATA[Register a new user.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="160" name="param" description="email address of user" type="string" variable="$email">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="160" name="param" description="password of user" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="160" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="167">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="167">
+          <name>$password</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="182" package="MonkId">
+        <name>update</name>
+        <full_name>update</full_name>
+        <docblock line="174">
+          <description><![CDATA[Update a user's username and/or password.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="174" name="param" description="new email address of user" type="string" variable="$email">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="174" name="param" description="new password of user" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="174" name="param" description="authentication token for user" type="string" variable="$authToken">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="174" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="182">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="182">
+          <name>$password</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="182">
+          <name>$authToken</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="196" package="MonkId">
+        <name>passwordReset</name>
+        <full_name>passwordReset</full_name>
+        <docblock line="190">
+          <description><![CDATA[Send a password reset email to a user.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="190" name="param" description="email address of user" type="string" variable="$email">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="190" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="196">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="209" package="MonkId">
+        <name>logIn</name>
+        <full_name>logIn</full_name>
+        <docblock line="202">
+          <description><![CDATA[Log a user in to Monk ID.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="202" name="param" description="email address of user" type="string" variable="$email">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="202" name="param" description="password of user" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="202" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="209">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="209">
+          <name>$password</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="222" package="MonkId">
+        <name>logOut</name>
+        <full_name>logOut</full_name>
+        <docblock line="216">
+          <description><![CDATA[Log a user out of Monk ID.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="216" name="param" description="authentication token for user" type="string" variable="$authToken">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="216" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="222">
+          <name>$authToken</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="234" package="MonkId">
+        <name>status</name>
+        <full_name>status</full_name>
+        <docblock line="228">
+          <description><![CDATA[Get the log in status of a user.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="228" name="param" description="authentication token for user" type="string" variable="$authToken">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="228" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="234">
+          <name>$authToken</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="global" line="246" package="MonkId">
+        <name>url</name>
+        <full_name>url</full_name>
+        <docblock line="240">
+          <description><![CDATA[Build the full request URL, including protocol, host, port, and path.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="240" name="param" description="endpoint of the URL" type="string" variable="$endpoint">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="240" name="return" description="full request URL or false if host is not configured" type="string|false">
+            <type by_reference="false">string</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="246">
+          <name>$endpoint</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="global" line="267" package="MonkId">
+        <name>params</name>
+        <full_name>params</full_name>
+        <docblock line="260">
+          <description><![CDATA[Build the parameters to send with the request.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="260" name="param" description="`user` key values" type="array" variable="$user">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="260" name="param" description="optional whether to encode to query string" type="bool" variable="$queryString">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="260" name="return" description="string if encoded to query string" type="array|string">
+            <type by_reference="false">array</type>
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="267">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+        <argument line="267">
+          <name>$queryString</name>
+          <default><![CDATA[true]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="global" line="282" package="MonkId">
+        <name>request</name>
+        <full_name>request</full_name>
+        <docblock line="274">
+          <description><![CDATA[Make an HTTP API request using cURL.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="274" name="param" description="HTTP method (GET, POST, etc.)" type="string" variable="$method">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="274" name="param" description="endpoint of the URL" type="string" variable="$endpoint">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="274" name="param" description="query string params to encode with the request" type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="274" name="return" description="JSON-decoded response or false if request failed" type="array|false">
+            <type by_reference="false">array</type>
+            <type by_reference="false">false</type>
+          </tag>
+        </docblock>
+        <argument line="282">
+          <name>$method</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="282">
+          <name>$endpoint</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="282">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file MonkId.php</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="MonkId" full_name="MonkId"/>
+  <namespace name="global" full_name="global"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

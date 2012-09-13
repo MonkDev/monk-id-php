@@ -3,7 +3,7 @@ MonkId
 
 PHP client for [Monk ID](http://monkid.com).
 
-*   [Documentation](http://monkdev.github.com/monk-id-client-php)
+*   [Documentation](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html)
 *   [Release Notes](https://github.com/monkdev/monk-id-client-php/wiki/Release-Notes)
 
 Requirements
@@ -99,27 +99,27 @@ values:
 The `MonkId` class contains constants for all of the field names and status
 codes, such as `MonkId::EMAIL` and `MonkId::STATUS_EMAIL_EXISTS`.
 
-#### Register
+#### [Register](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html#register)
 
     MonkId::register('st.anthony@thegreat.org', 'password');
 
-#### Update
+#### [Update](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html#update)
 
     MonkId::update('st.anthony@thegreat.org', 'password', 'authToken');
 
-#### Send Password Reset Email
+#### [Send Password Reset Email](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html#passwordReset)
 
     MonkId::passwordReset('st.anthony@thegreat.org');
 
-#### Log In
+#### [Log In](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html#logIn)
 
     MonkId::logIn('st.anthony@thegreat.org', 'password');
 
-#### Log Out
+#### [Log Out](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html#logOut)
 
     MonkId::logOut('authToken');
 
-#### Log In Status
+#### [Log In Status](http://monkdev.github.com/monk-id-client-php/classes/MonkId.html#status)
 
     MonkId::status('authToken');
 

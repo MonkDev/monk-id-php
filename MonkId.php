@@ -118,8 +118,8 @@
      *
      * @link   http://php.net/manual/en/function.parse-ini-file.php
      * @link   http://en.wikipedia.org/wiki/INI_file
-     * @param  $path string path to the config file to load
-     * @param  $environment string environment name within the config to load
+     * @param  string $path path to the config file to load
+     * @param  string $environment environment name within the config to load
      * @return bool true if loaded, false if failed to load or no config
      */
     public static function loadConfig($path, $environment) {
