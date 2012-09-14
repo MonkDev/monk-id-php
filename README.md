@@ -135,11 +135,14 @@ codes, such as `MonkId::EMAIL` and `MonkId::STATUS_EMAIL_EXISTS`.
 Feedback
 --------
 
-Please open an issue to request a feature or submit a bug report. Code
-contributions are also welcome.
+Please open an issue to request a feature or submit a bug report. Your feedback
+always welcome!
 
-1.  Fork it
-2.  Create your feature branch (`git checkout -b my-new-feature`)
-3.  Commit your changes (`git commit -am 'Added some feature'`)
-4.  Push to the branch (`git push origin my-new-feature`)
-5.  Create new Pull Request
+Contributing
+------------
+
+1.  Fork it.
+2.  Create your feature branch (`git checkout -b my-new-feature`).
+3.  Commit your changes (`git commit -am 'Added some feature'`).
+4.  Push to the branch (`git push origin my-new-feature`).
+5.  Create a new Pull Request.
