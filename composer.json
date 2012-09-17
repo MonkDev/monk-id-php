@@ -1,0 +1,19 @@
+{
+    "name": "monkdev/monk-id-client",
+    "type": "library",
+    "description": "PHP client for Monk ID.",
+    "keywords": ["monk", "monkdev", "monkid", "login", "logout", "signin", "signout"],
+    "homepage": "https://github.com/MonkDev/monk-id-client-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Monk Development, Inc.",
+            "homepage": "http://monkdev.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "ext-curl": "*"
+    }
+}
