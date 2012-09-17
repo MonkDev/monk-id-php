@@ -16,11 +16,34 @@ Requirements
 Installation
 ------------
 
+### Composer
+
+The recommended installation method is through
+[Composer](http://getcomposer.org/), a dependency manager for PHP. Just add
+`monkdev/monk-id-client` to your project's `composer.json` file:
+
+    {
+        "require": {
+            "monkdev/monk-id-client": "*"
+        }
+    }
+
+[More details](http://packagist.org/packages/monkdev/monk-id-client) can be
+found over at [Packagist](http://packagist.org).
+
+### Manually
+
 1.  Copy `MonkId.php` to your codebase, perhaps to the `vendor` directory.
 2.  Add the `MonkId` class to your autoloader or `require` the file directly.
-3.  Copy `monkid.sample.ini` to the config directory of your codebase, replace
+
+### Config
+
+Regardless of whether you install with Composer or manually, the config file
+must also be setup:
+
+1.  Copy `monkid.sample.ini` to the config directory of your codebase, replace
     the API key with your own, and save the file as `monkid.ini` (or whatever).
-4.  Load the config file (described below) during your app's bootstrapping.
+2.  Load the config file (described below) during your app's bootstrapping.
 
 Usage
 -----
@@ -136,7 +159,7 @@ Feedback
 --------
 
 Please open an issue to request a feature or submit a bug report. Your feedback
-always welcome!
+is always welcome!
 
 Contributing
 ------------
