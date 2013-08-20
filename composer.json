@@ -3,7 +3,7 @@
     "type": "library",
     "description": "PHP client for Monk ID.",
     "keywords": ["monk", "monkdev", "monkid", "login", "logout", "signin", "signout"],
-    "homepage": "https://github.com/MonkDev/monk-id-client-php",
+    "homepage": "https://github.com/MonkDev/monk-id-php",
     "license": "MIT",
     "authors": [
         {
