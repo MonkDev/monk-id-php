@@ -4,94 +4,89 @@
 
   class Id {
 
-    private static $instance;
+    const COOKIE_NAME = '_monkIdPayload';
 
-    private $config = array();
-    private $payload;
+    private static $config = array();
+    private static $payload;
 
     private function __construct() { }
 
-    final private function __clone() { }
-
-    public static function getInstance() {
-      if (!isset(self::$instance)) {
-        self::$instance = new self();
-      }
-
-      return self::$instance;
-    }
-
-    public function loadConfig($path, $environment) {
+    public static function loadConfig($path, $environment = 'development') {
       $config = parse_ini_file($path, true);
 
-      if (!$config || !isset($config[$environment])) {
-        return false;
+      if (isset($config[$environment])) {
+        self::$config = $config[$environment];
+      }
+      else {
+        self::$config = array();
       }
 
-      $this->config = $config[$environment];
-
-      return true;
+      return self::$config;
     }
 
-    public function setConfig($key, $value) {
-      $this->config[$key] = $value;
+    public static function setConfig($key, $value) {
+      self::$config[$key] = $value;
 
-      return $this;
+      return self;
     }
 
-    public function getConfig($key) {
-      return isset($this->config[$key]) ? $this->config[$key] : null;
+    public static function getConfig($key) {
+      return isset(self::$config[$key]) ? self::$config[$key] : null;
     }
 
-    private function cookiePayload() {
-      return isset($_COOKIE['_monkIdPayload']) ? $_COOKIE['_monkIdPayload'] : null;
+    private static function cookiePayload() {
+      return isset($_COOKIE[self::COOKIE_NAME]) ? $_COOKIE[self::COOKIE_NAME] : null;
     }
 
-    private function decodePayload($payload) {
-      return json_decode(base64_decode($payload), true);
+    private static function decodePayload($encodedPayload) {
+      return json_decode(base64_decode($encodedPayload), true);
     }
 
-    private function verifyPayload($payload) {
-      if (!$payload) {
-        return false;
-      }
-
-      $signature = base64_decode($payload['user']['signature']);
-
+    private static function expectedSignature($payload) {
       unset($payload['user']['signature']);
 
-      $expectedSignature = hash_hmac('sha512', json_encode($payload['user']), $this->getConfig('appSecret'), true);
-
-      return $signature == $expectedSignature;
+      return hash_hmac('sha512', json_encode($payload['user']), self::getConfig('app_secret'), true);
     }
 
-    public function loadPayload($encodedPayload = null) {
-      $payload = $encodedPayload ? $encodedPayload : $this->cookiePayload();
+    private static function verifyPayload($payload) {
+      $signature = base64_decode($payload['user']['signature']);
+
+      return $signature == self::expectedSignature($payload);
+    }
+
+    public static function loadPayload($encodedPayload = null) {
+      if ($encodedPayload) {
+        if (is_array($encodedPayload)) {
+          $payload = $encodedPayload[self::COOKIE_NAME];
+        }
+        else {
+          $payload = $encodedPayload;
+        }
+      }
+      else {
+        $payload = self::cookiePayload();
+      }
 
       if (!$payload) {
-        $this->payload = null;
-
-        return false;
+        return self::$payload = array();
       }
 
-      $payload = $this->decodePayload($payload);
-      $verified = $this->verifyPayload($payload);
+      $payload = self::decodePayload($payload);
+      $verified = self::verifyPayload($payload);
 
-      $this->payload = $verified ? $payload : null;
-
-      return $verified;
+      return self::$payload = $verified ? $payload : array();
     }
 
-    private function payload() {
-      if (!isset($this->payload)) {
-        $this->loadPayload();
+    private static function payload() {
+      if (!isset(self::$payload)) {
+        self::loadPayload();
       }
 
-      return $this->payload;
+      return self::$payload;
     }
 
-    private function payloadValue($key) {
-      $payload = $this->payload();
+    private static function payloadUser($key) {
+      $payload = self::payload();
 
       if (isset($payload['user'][$key])) {
         return $payload['user'][$key];
@@ -101,12 +96,12 @@
       }
     }
 
-    public function userId() {
-      return $this->payloadValue('id');
+    public static function userId() {
+      return self::payloadUser('id');
     }
 
-    public function userEmail() {
-      return $this->payloadValue('email');
+    public static function userEmail() {
+      return self::payloadUser('email');
     }
 
   }

@@ -1,5 +1,5 @@
 {
-    "name": "monkdev/monk-id-client",
+    "name": "monkdev/monk-id",
     "type": "library",
     "description": "PHP client for Monk ID.",
     "keywords": ["monk", "monkdev", "monkid", "login", "logout", "signin", "signout"],
@@ -13,7 +13,6 @@
         }
     ],
     "require": {
-        "php": ">=5.2.0",
-        "ext-curl": "*"
+        "php": ">=5.3.0"
     }
 }
