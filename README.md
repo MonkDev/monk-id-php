@@ -1,12 +1,12 @@
 Monk ID PHP
 ===========
 
-Copy `lib/Monk/Id.php` and `config/monkid.sample.ini` to your app.
+Copy `lib/Monk/Id.php` and `config/monkId.sample.ini` to your app.
 
 Load your config:
 
 ```php
-Monk\Id::loadConfig('/path/to/monkid.ini', 'development');
+Monk\Id::loadConfig('/path/to/monkId.ini', 'development');
 ```
 
 Next, if you're *not* using the `cookie` option, load an encoded payload:
