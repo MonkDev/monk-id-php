@@ -104,6 +104,10 @@
       return self::payloadUser('email');
     }
 
+    public static function signedIn() {
+      return !!self::userId();
+    }
+
   }
 
 ?>
