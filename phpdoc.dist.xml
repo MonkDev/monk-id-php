@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title>Monk ID PHP</title>
+  <parser>
+    <target>doc</target>
+    <visibility>public</visibility>
+  </parser>
+  <transformer>
+    <target>doc</target>
+  </transformer>
+  <files>
+    <directory>lib</directory>
+  </files>
+</phpdoc>
