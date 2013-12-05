@@ -42,13 +42,19 @@
     /**
      * Load an INI config file for a specific environment.
      *
-     * @param  string $path Path of INI config file to load.
-     * @param  string $environment Environment section to use. Defaults to
+     * @param  string $path Path of INI config file to load. Leave `null` to
+     *         read from environment's `MONK_ID_CONFIG` value.
+     * @param  string $environment Environment section to use. Leave `null` to
+     *         read from environment's `MONK_ID_ENV` value. Defaults to
      *         `development`.
      * @return array Loaded config values.
      * @throws Exception If the file doesn't exist or can't be read.
      */
-    public static function loadConfig($path, $environment = 'development') {
+    public static function loadConfig($path = null, $environment = null) {
+      $path = $path ? $path : getenv('MONK_ID_CONFIG');
+      $environment = $environment ? $environment : getenv('MONK_ID_ENV');
+      $environment = $environment ? $environment : 'development';
+
       $config = parse_ini_file($path, true);
       $config = $config[$environment];
 
@@ -85,6 +91,10 @@
      * @return mixed Config value.
      */
     public static function config($key) {
+      if (!isset(self::$config)) {
+        self::loadConfig();
+      }
+
       return self::$config[$key];
     }
 
