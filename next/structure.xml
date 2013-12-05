@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="Monk ID PHP" version="2.2.0&#10;">
   <partials/>
-  <file path="Id.php" generated-path="Id.html" hash="98d3686651a69381f2d03c11d8b7a61a" package="Default">
+  <file path="Id.php" generated-path="Id.html" hash="d25a7799c421803ef26977a47165a05c" package="Default">
     <docblock line="0">
       <description>Global Monk namespace.</description>
       <long-description></long-description>
@@ -109,17 +109,21 @@ static.</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="92" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="94" package="Default">
         <name>config</name>
         <full_name>\Monk\Id::config()</full_name>
-        <docblock line="92">
-          <description>Get a config value.</description>
+        <docblock line="94">
+          <description>Get a config value. Attempts to load the config if it hasn't already been
+loaded.</description>
           <long-description></long-description>
-          <tag name="param" line="92" description="&lt;p&gt;Name of config value.&lt;/p&gt;" type="string" variable="$key">
+          <tag name="param" line="94" description="&lt;p&gt;Name of config value.&lt;/p&gt;" type="string" variable="$key">
             <type>string</type>
           </tag>
-          <tag name="return" line="92" description="Config value." type="mixed">
+          <tag name="return" line="94" description="Config value." type="mixed">
             <type>mixed</type>
+          </tag>
+          <tag name="throws" line="94" description="If the config can't be loaded." type="\Exception">
+            <type link="Exception.html">\Exception</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -128,19 +132,19 @@ static.</description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="107" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="109" package="Default">
         <name>decodePayload</name>
         <full_name>\Monk\Id::decodePayload()</full_name>
-        <docblock line="107">
+        <docblock line="109">
           <description>Decode a payload from the client-side.</description>
           <long-description></long-description>
-          <tag name="param" line="107" description="&lt;p&gt;Encoded payload.&lt;/p&gt;" type="string" variable="$encodedPayload">
+          <tag name="param" line="109" description="&lt;p&gt;Encoded payload.&lt;/p&gt;" type="string" variable="$encodedPayload">
             <type>string</type>
           </tag>
-          <tag name="return" line="107" description="Decoded payload." type="array">
+          <tag name="return" line="109" description="Decoded payload." type="array">
             <type>array</type>
           </tag>
-          <tag name="throws" line="107" description="If payload cannot be decoded." type="\Exception">
+          <tag name="throws" line="109" description="If payload can't be decoded." type="\Exception">
             <type link="Exception.html">\Exception</type>
           </tag>
         </docblock>
@@ -150,16 +154,16 @@ static.</description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="123" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="125" package="Default">
         <name>expectedSignature</name>
         <full_name>\Monk\Id::expectedSignature()</full_name>
-        <docblock line="123">
+        <docblock line="125">
           <description>Generate the expected signature of a payload using the app's secret.</description>
           <long-description></long-description>
-          <tag name="param" line="123" description="&lt;p&gt;Decoded payload.&lt;/p&gt;" type="array" variable="$payload">
+          <tag name="param" line="125" description="&lt;p&gt;Decoded payload.&lt;/p&gt;" type="array" variable="$payload">
             <type>array</type>
           </tag>
-          <tag name="return" line="123" description="Expected signature of the payload." type="string">
+          <tag name="return" line="125" description="Expected signature of the payload." type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -169,17 +173,17 @@ static.</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="136" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="138" package="Default">
         <name>verifyPayload</name>
         <full_name>\Monk\Id::verifyPayload()</full_name>
-        <docblock line="136">
+        <docblock line="138">
           <description>Verify that a payload hasn't been tampered with or faked by comparing
 signatures.</description>
           <long-description></long-description>
-          <tag name="param" line="136" description="&lt;p&gt;Decoded payload.&lt;/p&gt;" type="array" variable="$payload">
+          <tag name="param" line="138" description="&lt;p&gt;Decoded payload.&lt;/p&gt;" type="array" variable="$payload">
             <type>array</type>
           </tag>
-          <tag name="return" line="136" description="Whether the payload is legit." type="bool">
+          <tag name="return" line="138" description="Whether the payload is legit." type="bool">
             <type>bool</type>
           </tag>
         </docblock>
@@ -189,17 +193,17 @@ signatures.</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="151" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="153" package="Default">
         <name>loadPayload</name>
         <full_name>\Monk\Id::loadPayload()</full_name>
-        <docblock line="151">
+        <docblock line="153">
           <description>Load a payload from the client-side.</description>
           <long-description></long-description>
-          <tag name="param" line="151" description="&lt;p&gt;Encoded payload or cookies array to&#10;  automatically load the payload from. Leave &lt;code&gt;null&lt;/code&gt; to read from global&#10;  &lt;code&gt;$_COOKIE&lt;/code&gt;.&lt;/p&gt;" type="string|array" variable="$encodedPayload">
+          <tag name="param" line="153" description="&lt;p&gt;Encoded payload or cookies array to&#10;  automatically load the payload from. Leave &lt;code&gt;null&lt;/code&gt; to read from global&#10;  &lt;code&gt;$_COOKIE&lt;/code&gt;.&lt;/p&gt;" type="string|array" variable="$encodedPayload">
             <type>string</type>
             <type>array</type>
           </tag>
-          <tag name="return" line="151" description="Decoded and verified payload. Empty if there's no payload&#10;  or it fails verification." type="array">
+          <tag name="return" line="153" description="Decoded and verified payload. Empty if there's no payload&#10;  or it fails verification." type="array">
             <type>array</type>
           </tag>
         </docblock>
@@ -209,27 +213,27 @@ signatures.</description>
           <type>string|array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="185" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="187" package="Default">
         <name>payload</name>
         <full_name>\Monk\Id::payload()</full_name>
-        <docblock line="185">
+        <docblock line="187">
           <description>Get the loaded payload.</description>
           <long-description></long-description>
-          <tag name="return" line="185" description="Loaded payload. Empty if there's no payload or it failed&#10;  verification." type="array">
+          <tag name="return" line="187" description="Loaded payload. Empty if there's no payload or it failed&#10;  verification." type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="199" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="201" package="Default">
         <name>payloadUser</name>
         <full_name>\Monk\Id::payloadUser()</full_name>
-        <docblock line="199">
+        <docblock line="201">
           <description>Get a value from the `user` object of the loaded payload.</description>
           <long-description></long-description>
-          <tag name="param" line="199" description="&lt;p&gt;Name of value.&lt;/p&gt;" type="string" variable="$key">
+          <tag name="param" line="201" description="&lt;p&gt;Name of value.&lt;/p&gt;" type="string" variable="$key">
             <type>string</type>
           </tag>
-          <tag name="return" line="199" description="Requested value or `null` if not set." type="mixed">
+          <tag name="return" line="201" description="Requested value or `null` if not set." type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -239,43 +243,43 @@ signatures.</description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="216" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="218" package="Default">
         <name>userId</name>
         <full_name>\Monk\Id::userId()</full_name>
-        <docblock line="216">
+        <docblock line="218">
           <description>Get the signed in user's UUID.</description>
           <long-description></long-description>
-          <tag name="return" line="216" description="UUID if signed in user or `null` if no signed in&#10;  user." type="string|null">
+          <tag name="return" line="218" description="UUID if signed in user or `null` if no signed in&#10;  user." type="string|null">
             <type>string</type>
             <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="226" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="228" package="Default">
         <name>userEmail</name>
         <full_name>\Monk\Id::userEmail()</full_name>
-        <docblock line="226">
+        <docblock line="228">
           <description>Get the signed in user's email address.</description>
           <long-description></long-description>
-          <tag name="return" line="226" description="Email address if signed in user or `null` if no&#10;  signed in user." type="string|null">
+          <tag name="return" line="228" description="Email address if signed in user or `null` if no&#10;  signed in user." type="string|null">
             <type>string</type>
             <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="235" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="237" package="Default">
         <name>signedIn</name>
         <full_name>\Monk\Id::signedIn()</full_name>
-        <docblock line="235">
+        <docblock line="237">
           <description>Check whether there's a signed in user.</description>
           <long-description></long-description>
-          <tag name="return" line="235" description="Whether there's a signed in user." type="bool">
+          <tag name="return" line="237" description="Whether there's a signed in user." type="bool">
             <type>bool</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <package name="Default" full_name="Default"/>
   <namespace name="Monk" full_name="Monk"/>

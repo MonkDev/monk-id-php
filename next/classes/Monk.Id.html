@@ -58,7 +58,9 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_config" title="config() :: Get a config value."><span class="description">Get a config value.</span><pre>config()</pre></a></li>
+<li class="method public "><a href="#method_config" title="config() :: Get a config value. Attempts to load the config if it hasn't already been
+loaded."><span class="description">Get a config value. Attempts to load the config if it hasn't already been
+loaded.</span><pre>config()</pre></a></li>
 <li class="method public "><a href="#method_loadConfig" title="loadConfig() :: Load an INI config file for a specific environment."><span class="description">Load an INI config file for a specific environment.</span><pre>loadConfig()</pre></a></li>
 <li class="method public "><a href="#method_loadPayload" title="loadPayload() :: Load a payload from the client-side."><span class="description">Load a payload from the client-side.</span><pre>loadPayload()</pre></a></li>
 <li class="method public "><a href="#method_signedIn" title="signedIn() :: Check whether there's a signed in user."><span class="description">Check whether there's a signed in user.</span><pre>signedIn()</pre></a></li>
@@ -125,7 +127,8 @@ client-side JavaScript.</p>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method_config"></a><div class="element clickable method public method_config" data-toggle="collapse" data-target=".method_config .collapse" title="public">
-<h2>Get a config value.</h2>
+<h2>Get a config value. Attempts to load the config if it hasn't already been
+loaded.</h2>
 <pre>config(string $key) : mixed</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
@@ -134,6 +137,11 @@ client-side JavaScript.</p>
 <div class="subelement argument">
 <h4>$key</h4>
 <code>string</code><p>Name of config value.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="Exception.html">\Exception</a></code></th>
+<td>If the config can't be loaded.</td>
+</tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>mixed</code>Config value.</div>
@@ -237,7 +245,7 @@ static.</h2>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code><a href="Exception.html">\Exception</a></code></th>
-<td>If payload cannot be decoded.</td>
+<td>If payload can't be decoded.</td>
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
@@ -360,7 +368,7 @@ signatures.</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.2.0
 </a> and<br>
-            generated on 2013-12-05T14:35:47-06:00.<br></footer></div>
+            generated on 2013-12-05T15:58:33-06:00.<br></footer></div>
 </div>
 </body>
 </html>
