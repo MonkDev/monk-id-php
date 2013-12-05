@@ -84,10 +84,12 @@
     }
 
     /**
-     * Get a config value.
+     * Get a config value. Attempts to load the config if it hasn't already been
+     * loaded.
      *
      * @param  string $key Name of config value.
      * @return mixed Config value.
+     * @throws \Exception If the config can't be loaded.
      */
     public static function config($key) {
       if (!isset(self::$config)) {
@@ -102,7 +104,7 @@
      *
      * @param  string $encodedPayload Encoded payload.
      * @return array Decoded payload.
-     * @throws \Exception If payload cannot be decoded.
+     * @throws \Exception If payload can't be decoded.
      */
     private static function decodePayload($encodedPayload) {
       $decodedPayload = json_decode(base64_decode($encodedPayload), true);
