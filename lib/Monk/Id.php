@@ -43,12 +43,11 @@
      * Load an INI config file for a specific environment.
      *
      * @param  string $path Path of INI config file to load. Leave `null` to
-     *         read from environment's `MONK_ID_CONFIG` value.
+     *   read from environment's `MONK_ID_CONFIG` value.
      * @param  string $environment Environment section to use. Leave `null` to
-     *         read from environment's `MONK_ID_ENV` value. Defaults to
-     *         `development`.
+     *   read from environment's `MONK_ID_ENV` value. Defaults to `development`.
      * @return array Loaded config values.
-     * @throws Exception If the file doesn't exist or can't be read.
+     * @throws \Exception If the file doesn't exist or can't be read.
      */
     public static function loadConfig($path = null, $environment = null) {
       $path = $path ? $path : getenv('MONK_ID_CONFIG');
@@ -68,7 +67,7 @@
      *
      * @param  array $config Config values.
      * @return true If valid.
-     * @throws Exception If invalid.
+     * @throws \Exception If invalid.
      */
     private static function verifyConfig(array $config = null) {
       if (!$config) {
@@ -103,7 +102,7 @@
      *
      * @param  string $encodedPayload Encoded payload.
      * @return array Decoded payload.
-     * @throws Exception If payload cannot be decoded.
+     * @throws \Exception If payload cannot be decoded.
      */
     private static function decodePayload($encodedPayload) {
       $decodedPayload = json_decode(base64_decode($encodedPayload), true);
@@ -144,10 +143,10 @@
      * Load a payload from the client-side.
      *
      * @param  string|array $encodedPayload Encoded payload or cookies array to
-     *         automatically load the payload from. Leave `null` to read from
-     *         global `$_COOKIE`.
+     *   automatically load the payload from. Leave `null` to read from global
+     *   `$_COOKIE`.
      * @return array Decoded and verified payload. Empty if there's no payload
-     *         or it fails verification.
+     *   or it fails verification.
      */
     public static function loadPayload($encodedPayload = null) {
       if ($encodedPayload) {
@@ -181,7 +180,7 @@
      * Get the loaded payload.
      *
      * @return array Loaded payload. Empty if there's no payload or it failed
-     *         verification.
+     *   verification.
      */
     private static function payload() {
       if (!isset(self::$payload)) {
@@ -212,7 +211,7 @@
      * Get the signed in user's UUID.
      *
      * @return string|null UUID if signed in user or `null` if no signed in
-     *         user.
+     *   user.
      */
     public static function userId() {
       return self::payloadUser('id');
@@ -222,7 +221,7 @@
      * Get the signed in user's email address.
      *
      * @return string|null Email address if signed in user or `null` if no
-     *         signed in user.
+     *   signed in user.
      */
     public static function userEmail() {
       return self::payloadUser('email');

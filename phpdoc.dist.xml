@@ -8,6 +8,9 @@
   <transformer>
     <target>doc</target>
   </transformer>
+  <transformations>
+    <template name="responsive" />
+  </transformations>
   <files>
     <directory>lib</directory>
   </files>
