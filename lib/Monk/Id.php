@@ -97,9 +97,16 @@
      *
      * @param  string $encodedPayload Encoded payload.
      * @return array Decoded payload.
+     * @throws Exception If payload cannot be decoded.
      */
     private static function decodePayload($encodedPayload) {
-      return json_decode(base64_decode($encodedPayload), true);
+      $decodedPayload = json_decode(base64_decode($encodedPayload), true);
+
+      if (!$decodedPayload) {
+        throw new Exception('failed to decode payload');
+      }
+
+      return $decodedPayload;
     }
 
     /**
@@ -108,7 +115,7 @@
      * @param  array $payload Decoded payload.
      * @return string Expected signature of the payload.
      */
-    private static function expectedSignature($payload) {
+    private static function expectedSignature(array $payload) {
       unset($payload['user']['signature']);
 
       return hash_hmac('sha512', json_encode($payload['user']), self::getConfig('app_secret'), true);
@@ -121,7 +128,7 @@
      * @param  array $payload Decoded payload.
      * @return bool Whether the payload is legit.
      */
-    private static function verifyPayload($payload) {
+    private static function verifyPayload(array $payload) {
       $signature = base64_decode($payload['user']['signature']);
 
       return $signature == self::expectedSignature($payload);
@@ -152,8 +159,13 @@
         return self::$payload = array();
       }
 
-      $payload = self::decodePayload($payload);
-      $verified = self::verifyPayload($payload);
+      try {
+        $payload = self::decodePayload($payload);
+        $verified = self::verifyPayload($payload);
+      }
+      catch (Exception $e) {
+        $verified = false;
+      }
 
       return self::$payload = $verified ? $payload : array();
     }
