@@ -1,6 +1,8 @@
 Monk ID PHP
 ===========
 
+Full API docs: http://monkdev.github.io/monk-id-php/next/classes/Monk.Id.html
+
 Copy `lib/Monk/Id.php` and `config/monkId.sample.ini` to your app.
 
 Load your config:
