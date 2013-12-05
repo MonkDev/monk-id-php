@@ -89,15 +89,6 @@
     }
 
     /**
-     * Get the encoded payload stored in the cookie.
-     *
-     * @return string|null Encoded payload or `null` if not set.
-     */
-    private static function cookiePayload() {
-      return isset($_COOKIE[self::COOKIE_NAME]) ? $_COOKIE[self::COOKIE_NAME] : null;
-    }
-
-    /**
      * Decode a payload from the client-side.
      *
      * @param  string $encodedPayload Encoded payload.
@@ -143,7 +134,8 @@
      * Load a payload from the client-side.
      *
      * @param  string|array $encodedPayload Encoded payload or cookies array to
-     *         automatically load the payload from.
+     *         automatically load the payload from. Leave `null` to read from
+     *         global `$_COOKIE`.
      * @return array Decoded and verified payload. Empty if there's no payload
      *         or it fails verification.
      */
@@ -157,7 +149,7 @@
         }
       }
       else {
-        $payload = self::cookiePayload();
+        $payload = $_COOKIE[self::COOKIE_NAME];
       }
 
       if (!$payload) {
