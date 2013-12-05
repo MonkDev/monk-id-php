@@ -46,41 +46,46 @@
      * @param  string $environment Environment section to use. Defaults to
      *         `development`.
      * @return array Loaded config values.
+     * @throws Exception If the file doesn't exist or can't be read.
      */
     public static function loadConfig($path, $environment = 'development') {
       $config = parse_ini_file($path, true);
+      $config = $config[$environment];
 
-      if (isset($config[$environment])) {
-        self::$config = $config[$environment];
-      }
-      else {
-        self::$config = array();
-      }
+      self::verifyConfig($config);
 
-      return self::$config;
+      return self::$config = $config;
     }
 
     /**
-     * Set a config value.
+     * Verify that a config has all the required values.
      *
-     * @param  string $key Name of config value.
-     * @param  mixed $value New config value.
-     * @return self
+     * @param  array $config Config values.
+     * @return true If valid.
+     * @throws Exception If invalid.
      */
-    public static function setConfig($key, $value) {
-      self::$config[$key] = $value;
+    private static function verifyConfig(array $config = null) {
+      if (!$config) {
+        throw new \Exception('no config loaded');
+      }
+      elseif (!$config['app_id']) {
+        throw new \Exception('no `app_id` config value');
+      }
+      elseif (!$config['app_secret']) {
+        throw new \Exception('no `app_secret` config value');
+      }
 
-      return self;
+      return true;
     }
 
     /**
      * Get a config value.
      *
      * @param  string $key Name of config value.
-     * @return mixed Config value or `null` if not set.
+     * @return mixed Config value.
      */
-    public static function getConfig($key) {
-      return isset(self::$config[$key]) ? self::$config[$key] : null;
+    public static function config($key) {
+      return self::$config[$key];
     }
 
     /**
@@ -103,7 +108,7 @@
       $decodedPayload = json_decode(base64_decode($encodedPayload), true);
 
       if (!$decodedPayload) {
-        throw new Exception('failed to decode payload');
+        throw new \Exception('failed to decode payload');
       }
 
       return $decodedPayload;
@@ -118,7 +123,7 @@
     private static function expectedSignature(array $payload) {
       unset($payload['user']['signature']);
 
-      return hash_hmac('sha512', json_encode($payload['user']), self::getConfig('app_secret'), true);
+      return hash_hmac('sha512', json_encode($payload['user']), self::config('app_secret'), true);
     }
 
     /**
@@ -163,7 +168,7 @@
         $payload = self::decodePayload($payload);
         $verified = self::verifyPayload($payload);
       }
-      catch (Exception $e) {
+      catch (\Exception $e) {
         $verified = false;
       }
 
