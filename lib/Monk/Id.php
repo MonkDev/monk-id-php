@@ -84,15 +84,27 @@
     }
 
     /**
-     * Get a config value. Attempts to load the config if it hasn't already been
-     * loaded.
+     * Get or set a config value. Attempts to load the config if it hasn't
+     * already been loaded.
      *
      * @param  string $key Name of config value.
+     * @param  mixed $value New config value. Leave unset to get a config value.
      * @return mixed Config value.
-     * @throws \Exception If the config can't be loaded.
+     * @throws \Exception If the config can't be loaded or is invalid.
      */
-    public static function config($key) {
-      if (!isset(self::$config)) {
+    public static function config($key, $value = null) {
+      // If both parameters are passed, set the value.
+      if (func_num_args() == 2) {
+        $config = isset(self::$config) ? self::$config : array();
+        $config[$key] = $value;
+
+        self::verifyConfig($config);
+
+        self::$config = $config;
+      }
+      // Otherwise, if the config hasn't been loaded, attempt to load to get a
+      // value.
+      elseif (!isset(self::$config)) {
         self::loadConfig();
       }
 
