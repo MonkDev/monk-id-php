@@ -1,6 +1,9 @@
 Monk ID PHP
 ===========
 
+[![Latest Stable Version](https://poser.pugx.org/monkdev/monk-id/v/stable.png)](https://packagist.org/packages/monkdev/monk-id)
+[![Total Downloads](https://poser.pugx.org/monkdev/monk-id/downloads.png)](https://packagist.org/packages/monkdev/monk-id)
+
 Full API docs: http://monkdev.github.io/monk-id-php/next/classes/Monk.Id.html
 
 Copy `lib/Monk/Id.php` and `config/monkId.sample.ini` to your app.
