@@ -10,7 +10,7 @@
    * client-side JavaScript.
    *
    * @author    Monk Development, Inc.
-   * @copyright 2013 Monk Development, Inc.
+   * @copyright 2014 Monk Development, Inc.
    */
   class Id {
 
