@@ -3,5 +3,4 @@ composer.lock
 phpdoc.xml
 doc/
 node_modules/
-phpdoc-cache-*/
 vendor/
