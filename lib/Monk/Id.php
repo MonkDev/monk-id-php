@@ -6,8 +6,8 @@
   namespace Monk;
 
   /**
-   * Integrate Monk ID on the server-side by accessing payloads from the
-   * client-side JavaScript.
+   * Integrate Monk ID authentication and single sign-on for apps and websites
+   * on the server-side.
    *
    * @author    Monk Development, Inc.
    * @copyright 2014 Monk Development, Inc.

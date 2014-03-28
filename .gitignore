@@ -1,4 +1,7 @@
+.grunt
 composer.lock
-vendor/
-doc/
 phpdoc.xml
+doc/
+node_modules/
+phpdoc-cache-*/
+vendor/

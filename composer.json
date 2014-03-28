@@ -1,26 +1,32 @@
 {
-    "name": "monkdev/monk-id",
-    "type": "library",
-    "description": "Integrate Monk ID on the server-side by accessing payloads from the client-side JavaScript.",
-    "keywords": ["monk", "monkdev", "monkid", "id", "login", "logout", "signin", "signout", "signup"],
-    "homepage": "https://github.com/MonkDev/monk-id-php",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Monk Development, Inc.",
-            "homepage": "http://monkdev.com",
-            "role": "Developer"
-        }
-    ],
-    "autoload": {
-        "psr-0": {
-            "Monk\\": "lib/"
-        }
-    },
-    "require": {
-        "php": ">=5.3.0"
-    },
-    "require-dev": {
-        "phpdocumentor/phpdocumentor": "*"
+  "name": "monkdev/monk-id",
+  "type": "library",
+  "description": "Integrate Monk ID authentication and single sign-on for apps and websites on the server-side.",
+  "keywords": ["monk", "monkdev", "monkid", "id", "login", "logout", "signin", "signout", "signup"],
+  "homepage": "https://github.com/MonkDev/monk-id-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Monk Development, Inc.",
+      "homepage": "http://monkdev.com",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Monk\\": "lib/"
+    }
+  },
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "require-dev": {
+    "phpdocumentor/phpdocumentor": "~2.3",
+    "phploc/phploc": "~2.0",
+    "phpmd/phpmd": "~1.5",
+    "sebastian/phpcpd": "~2.0",
+    "sebastian/phpdcd": "~1.0",
+    "sensiolabs/security-checker": "~1.3",
+    "squizlabs/php_codesniffer": "~1.5"
+  }
 }
