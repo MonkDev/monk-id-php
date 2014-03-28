@@ -1,151 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="2.0.0a10" title="Monk ID PHP">
-  <file path="Id.php" hash="c3180201061de960766fa3b604b82a28" package="Default">
-    <docblock line="3">
-      <description><![CDATA[Global Monk namespace.]]></description>
-      <long-description><![CDATA[]]></long-description>
+<project title="Monk ID PHP" version="2.3.2&#10;">
+  <partials/>
+  <file path="Id.php" generated-path="Id.html" hash="ec8f738b5c333a63d1de815b6b314a1e" package="">
+    <docblock line="0">
+      <description>Global Monk namespace.</description>
+      <long-description></long-description>
     </docblock>
-    <class final="false" abstract="false" namespace="Monk" line="15" package="Default">
+    <class final="false" abstract="false" namespace="Monk" line="15" package="">
       <extends/>
       <name>Id</name>
       <full_name>\Monk\Id</full_name>
-      <docblock line="8">
-        <description><![CDATA[Integrate Monk ID on the server-side by accessing payloads from the
-client-side JavaScript.]]></description>
-        <long-description><![CDATA[]]></long-description>
-        <tag line="8" name="author" description="Monk Development, Inc."/>
-        <tag line="8" name="copyright" description="2013 Monk Development, Inc."/>
+      <docblock line="15">
+        <description>Integrate Monk ID authentication and single sign-on for apps and websites
+on the server-side.</description>
+        <long-description></long-description>
+        <tag name="author" line="15" description="Monk Development, Inc."/>
+        <tag name="copyright" line="15" description="2014 Monk Development, Inc."/>
       </docblock>
-      <constant namespace="Monk" line="20" package="Default">
+      <constant namespace="Monk" line="20" package="">
         <name>COOKIE_NAME</name>
-        <full_name>COOKIE_NAME</full_name>
-        <value><![CDATA['_monkIdPayload']]></value>
-        <docblock line="17">
-          <description><![CDATA[Name of the cookie that (optionally) stores the payload.]]></description>
-          <long-description><![CDATA[]]></long-description>
+        <full_name>\Monk\Id::COOKIE_NAME</full_name>
+        <value>'_monkIdPayload'</value>
+        <docblock line="20">
+          <description>Name of the cookie that (optionally) stores the payload.</description>
+          <long-description></long-description>
         </docblock>
       </constant>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="52" package="Default">
+      <property static="true" visibility="private" namespace="Monk" line="27" package="">
+        <name>$config</name>
+        <full_name>\Monk\Id::config</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>Config values.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="private" namespace="Monk" line="34" package="">
+        <name>$payload</name>
+        <full_name>\Monk\Id::payload</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Decoded and verified payload.</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Monk" line="40" package="">
+        <name>__construct</name>
+        <full_name>\Monk\Id::__construct()</full_name>
+        <docblock line="40">
+          <description>Prevent the class from being instantiated as all data and methods are
+static.</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="52" package="">
         <name>loadConfig</name>
-        <full_name>loadConfig</full_name>
-        <docblock line="42">
-          <description><![CDATA[Load an INI config file for a specific environment.]]></description>
-          <long-description><![CDATA[]]></long-description>
-          <tag line="42" name="param" description="Path of INI config file to load. Leave `null` to read from environment's `MONK_ID_CONFIG` value." type="string" variable="$path">
-            <type by_reference="false">string</type>
+        <full_name>\Monk\Id::loadConfig()</full_name>
+        <docblock line="52">
+          <description>Load an INI config file for a specific environment.</description>
+          <long-description></long-description>
+          <tag name="param" line="52" description="&lt;p&gt;Path of INI config file to load. Leave &lt;code&gt;null&lt;/code&gt; to&#10;  read from environment's &lt;code&gt;MONK_ID_CONFIG&lt;/code&gt; value.&lt;/p&gt;" type="string" variable="$path">
+            <type>string</type>
           </tag>
-          <tag line="42" name="param" description="Environment section to use. Leave `null` to read from environment's `MONK_ID_ENV` value. Defaults to `development`." type="string" variable="$environment">
-            <type by_reference="false">string</type>
+          <tag name="param" line="52" description="&lt;p&gt;Environment section to use. Leave &lt;code&gt;null&lt;/code&gt; to&#10;  read from environment's &lt;code&gt;MONK_ID_ENV&lt;/code&gt; value. Defaults to &lt;code&gt;development&lt;/code&gt;.&lt;/p&gt;" type="string" variable="$environment">
+            <type>string</type>
           </tag>
-          <tag line="42" name="return" description="Loaded config values." type="array">
-            <type by_reference="false">array</type>
+          <tag name="return" line="52" description="Loaded config values." type="array">
+            <type>array</type>
           </tag>
-          <tag line="42" name="throws" description="If the file doesn't exist or can't be read." type="\Exception">
-            <type by_reference="false">\Exception</type>
+          <tag name="throws" line="52" description="If the file doesn't exist or can't be read." type="\Exception">
+            <type>\Exception</type>
           </tag>
         </docblock>
-        <argument line="52">
+        <argument line="0" by_reference="false">
           <name>$path</name>
-          <default><![CDATA[null]]></default>
-          <type/>
+          <default>null</default>
+          <type>string</type>
         </argument>
-        <argument line="52">
+        <argument line="0" by_reference="false">
           <name>$environment</name>
-          <default><![CDATA[null]]></default>
-          <type/>
+          <default>null</default>
+          <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="95" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="72" package="">
+        <name>verifyConfig</name>
+        <full_name>\Monk\Id::verifyConfig()</full_name>
+        <docblock line="72">
+          <description>Verify that a config has all the required values.</description>
+          <long-description></long-description>
+          <tag name="param" line="72" description="&lt;p&gt;Config values.&lt;/p&gt;" type="array" variable="$config">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="72" description="If valid." type="true">
+            <type>true</type>
+          </tag>
+          <tag name="throws" line="72" description="If invalid." type="\Exception">
+            <type>\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$config</name>
+          <default>null</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="95" package="">
         <name>config</name>
-        <full_name>config</full_name>
-        <docblock line="86">
-          <description><![CDATA[Get or set a config value.]]></description>
-          <long-description><![CDATA[<p>Attempts to load the config if it hasn't
-already been loaded.</p>]]></long-description>
-          <tag line="86" name="param" description="Name of config value." type="string" variable="$key">
-            <type by_reference="false">string</type>
+        <full_name>\Monk\Id::config()</full_name>
+        <docblock line="95">
+          <description>Get or set a config value. Attempts to load the config if it hasn't
+already been loaded.</description>
+          <long-description></long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name of config value.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
           </tag>
-          <tag line="86" name="param" description="New config value. Leave unset to get a config value." type="mixed" variable="$value">
-            <type by_reference="false">mixed</type>
+          <tag name="param" line="95" description="&lt;p&gt;New config value. Leave unset to get a config value.&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
           </tag>
-          <tag line="86" name="return" description="Config value." type="mixed">
-            <type by_reference="false">mixed</type>
+          <tag name="return" line="95" description="Config value." type="mixed">
+            <type>mixed</type>
           </tag>
-          <tag line="86" name="throws" description="If the config can't be loaded or is invalid." type="\Exception">
-            <type by_reference="false">\Exception</type>
+          <tag name="throws" line="95" description="If the config can't be loaded or is invalid." type="\Exception">
+            <type>\Exception</type>
           </tag>
         </docblock>
-        <argument line="95">
+        <argument line="0" by_reference="false">
           <name>$key</name>
-          <default><![CDATA[]]></default>
-          <type/>
+          <default></default>
+          <type>string</type>
         </argument>
-        <argument line="95">
+        <argument line="0" by_reference="false">
           <name>$value</name>
-          <default><![CDATA[null]]></default>
-          <type/>
+          <default>null</default>
+          <type>mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="165" package="Default">
-        <name>loadPayload</name>
-        <full_name>loadPayload</full_name>
-        <docblock line="156">
-          <description><![CDATA[Load a payload from the client-side.]]></description>
-          <long-description><![CDATA[]]></long-description>
-          <tag line="156" name="param" description="Encoded payload or cookies array to automatically load the payload from. Leave `null` to read from global `$_COOKIE`." type="string|array" variable="$encodedPayload">
-            <type by_reference="false">string</type>
-            <type by_reference="false">array</type>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="121" package="">
+        <name>decodePayload</name>
+        <full_name>\Monk\Id::decodePayload()</full_name>
+        <docblock line="121">
+          <description>Decode a payload from the client-side.</description>
+          <long-description></long-description>
+          <tag name="param" line="121" description="&lt;p&gt;Encoded payload.&lt;/p&gt;" type="string" variable="$encodedPayload">
+            <type>string</type>
           </tag>
-          <tag line="156" name="return" description="Decoded and verified payload. Empty if there's no payload or it fails verification." type="array">
-            <type by_reference="false">array</type>
+          <tag name="return" line="121" description="Decoded payload." type="array">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="121" description="If payload can't be decoded." type="\Exception">
+            <type>\Exception</type>
           </tag>
         </docblock>
-        <argument line="165">
+        <argument line="0" by_reference="false">
           <name>$encodedPayload</name>
-          <default><![CDATA[null]]></default>
-          <type/>
+          <default></default>
+          <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="230" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="137" package="">
+        <name>expectedSignature</name>
+        <full_name>\Monk\Id::expectedSignature()</full_name>
+        <docblock line="137">
+          <description>Generate the expected signature of a payload using the app's secret.</description>
+          <long-description></long-description>
+          <tag name="param" line="137" description="&lt;p&gt;Decoded payload.&lt;/p&gt;" type="array" variable="$payload">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="137" description="Expected signature of the payload." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$payload</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="150" package="">
+        <name>verifyPayload</name>
+        <full_name>\Monk\Id::verifyPayload()</full_name>
+        <docblock line="150">
+          <description>Verify that a payload hasn't been tampered with or faked by comparing
+signatures.</description>
+          <long-description></long-description>
+          <tag name="param" line="150" description="&lt;p&gt;Decoded payload.&lt;/p&gt;" type="array" variable="$payload">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="150" description="Whether the payload is legit." type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$payload</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="165" package="">
+        <name>loadPayload</name>
+        <full_name>\Monk\Id::loadPayload()</full_name>
+        <docblock line="165">
+          <description>Load a payload from the client-side.</description>
+          <long-description></long-description>
+          <tag name="param" line="165" description="&lt;p&gt;Encoded payload or cookies array to&#10;  automatically load the payload from. Leave &lt;code&gt;null&lt;/code&gt; to read from global&#10;  &lt;code&gt;$_COOKIE&lt;/code&gt;.&lt;/p&gt;" type="string|array" variable="$encodedPayload">
+            <type>string</type>
+            <type>array</type>
+          </tag>
+          <tag name="return" line="165" description="Decoded and verified payload. Empty if there's no payload&#10;  or it fails verification." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$encodedPayload</name>
+          <default>null</default>
+          <type>string|array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="199" package="">
+        <name>payload</name>
+        <full_name>\Monk\Id::payload()</full_name>
+        <docblock line="199">
+          <description>Get the loaded payload.</description>
+          <long-description></long-description>
+          <tag name="return" line="199" description="Loaded payload. Empty if there's no payload or it failed&#10;  verification." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Monk" line="213" package="">
+        <name>payloadUser</name>
+        <full_name>\Monk\Id::payloadUser()</full_name>
+        <docblock line="213">
+          <description>Get a value from the `user` object of the loaded payload.</description>
+          <long-description></long-description>
+          <tag name="param" line="213" description="&lt;p&gt;Name of value.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="213" description="Requested value or `null` if not set." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="230" package="">
         <name>userId</name>
-        <full_name>userId</full_name>
-        <docblock line="224">
-          <description><![CDATA[Get the signed in user's UUID.]]></description>
-          <long-description><![CDATA[]]></long-description>
-          <tag line="224" name="return" description="UUID if signed in user or `null` if no signed in user." type="string|null">
-            <type by_reference="false">string</type>
-            <type by_reference="false">null</type>
+        <full_name>\Monk\Id::userId()</full_name>
+        <docblock line="230">
+          <description>Get the signed in user's UUID.</description>
+          <long-description></long-description>
+          <tag name="return" line="230" description="UUID if signed in user or `null` if no signed in&#10;  user." type="string|null">
+            <type>string</type>
+            <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="240" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="240" package="">
         <name>userEmail</name>
-        <full_name>userEmail</full_name>
-        <docblock line="234">
-          <description><![CDATA[Get the signed in user's email address.]]></description>
-          <long-description><![CDATA[]]></long-description>
-          <tag line="234" name="return" description="Email address if signed in user or `null` if no signed in user." type="string|null">
-            <type by_reference="false">string</type>
-            <type by_reference="false">null</type>
+        <full_name>\Monk\Id::userEmail()</full_name>
+        <docblock line="240">
+          <description>Get the signed in user's email address.</description>
+          <long-description></long-description>
+          <tag name="return" line="240" description="Email address if signed in user or `null` if no&#10;  signed in user." type="string|null">
+            <type>string</type>
+            <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="249" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="249" package="">
         <name>signedIn</name>
-        <full_name>signedIn</full_name>
-        <docblock line="244">
-          <description><![CDATA[Check whether there's a signed in user.]]></description>
-          <long-description><![CDATA[]]></long-description>
-          <tag line="244" name="return" description="Whether there's a signed in user." type="bool">
-            <type by_reference="false">bool</type>
+        <full_name>\Monk\Id::signedIn()</full_name>
+        <docblock line="249">
+          <description>Check whether there's a signed in user.</description>
+          <long-description></long-description>
+          <tag name="return" line="249" description="Whether there's a signed in user." type="bool">
+            <type>bool</type>
           </tag>
         </docblock>
       </method>
     </class>
+    <source>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</source>
   </file>
-  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
   <namespace name="Monk" full_name="Monk"/>
-  <marker count="0">todo</marker>
-  <marker count="0">fixme</marker>
   <deprecated count="0"/>
 </project>

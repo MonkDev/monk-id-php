@@ -1,4 +1,4 @@
-<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
@@ -46,38 +46,74 @@
                         </div></noscript>
 <div class="row">
 <div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<div class="btn-toolbar">
+<div class="btn-group visibility" data-toggle="buttons-checkbox">
+<button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
+</div>
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
 </div>
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public "><a href="#config" title="config :: Get or set a config value."><span class="description">Get or set a config value.</span><pre>config()</pre></a></li>
-<li class="method public "><a href="#loadConfig" title="loadConfig :: Load an INI config file for a specific environment."><span class="description">Load an INI config file for a specific environment.</span><pre>loadConfig()</pre></a></li>
-<li class="method public "><a href="#loadPayload" title="loadPayload :: Load a payload from the client-side."><span class="description">Load a payload from the client-side.</span><pre>loadPayload()</pre></a></li>
-<li class="method public "><a href="#signedIn" title="signedIn :: Check whether there's a signed in user."><span class="description">Check whether there's a signed in user.</span><pre>signedIn()</pre></a></li>
-<li class="method public "><a href="#userEmail" title="userEmail :: Get the signed in user's email address."><span class="description">Get the signed in user's email address.</span><pre>userEmail()</pre></a></li>
-<li class="method public "><a href="#userId" title="userId :: Get the signed in user's UUID."><span class="description">Get the signed in user's UUID.</span><pre>userId()</pre></a></li>
+<i title="Methods" class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_config" title="config() :: Get or set a config value. Attempts to load the config if it hasn't
+already been loaded."><span class="description">Get or set a config value. Attempts to load the config if it hasn't
+already been loaded.</span><pre>config()</pre></a></li>
+<li class="method public "><a href="#method_loadConfig" title="loadConfig() :: Load an INI config file for a specific environment."><span class="description">Load an INI config file for a specific environment.</span><pre>loadConfig()</pre></a></li>
+<li class="method public "><a href="#method_loadPayload" title="loadPayload() :: Load a payload from the client-side."><span class="description">Load a payload from the client-side.</span><pre>loadPayload()</pre></a></li>
+<li class="method public "><a href="#method_signedIn" title="signedIn() :: Check whether there's a signed in user."><span class="description">Check whether there's a signed in user.</span><pre>signedIn()</pre></a></li>
+<li class="method public "><a href="#method_userEmail" title="userEmail() :: Get the signed in user's email address."><span class="description">Get the signed in user's email address.</span><pre>userEmail()</pre></a></li>
+<li class="method public "><a href="#method_userId" title="userId() :: Get the signed in user's UUID."><span class="description">Get the signed in user's UUID.</span><pre>userId()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method___construct" title="__construct() :: Prevent the class from being instantiated as all data and methods are
+static."><span class="description">Prevent the class from being instantiated as all data and methods are
+static.</span><pre>__construct()</pre></a></li>
+<li class="method private "><a href="#method_decodePayload" title="decodePayload() :: Decode a payload from the client-side."><span class="description">Decode a payload from the client-side.</span><pre>decodePayload()</pre></a></li>
+<li class="method private "><a href="#method_expectedSignature" title="expectedSignature() :: Generate the expected signature of a payload using the app's secret."><span class="description">Generate the expected signature of a payload using the app's secret.</span><pre>expectedSignature()</pre></a></li>
+<li class="method private "><a href="#method_payload" title="payload() :: Get the loaded payload."><span class="description">Get the loaded payload.</span><pre>payload()</pre></a></li>
+<li class="method private "><a href="#method_payloadUser" title="payloadUser() :: Get a value from the `user` object of the loaded payload."><span class="description">Get a value from the `user` object of the loaded payload.</span><pre>payloadUser()</pre></a></li>
+<li class="method private "><a href="#method_verifyConfig" title="verifyConfig() :: Verify that a config has all the required values."><span class="description">Verify that a config has all the required values.</span><pre>verifyConfig()</pre></a></li>
+<li class="method private "><a href="#method_verifyPayload" title="verifyPayload() :: Verify that a payload hasn't been tampered with or faked by comparing
+signatures."><span class="description">Verify that a payload hasn't been tampered with or faked by comparing
+signatures.</span><pre>verifyPayload()</pre></a></li>
+</ul>
+</li>
 <li class="nav-header">
-<i class="icon-custom icon-constant"></i> Constants</li>
-<li class="constant  "><a href="#COOKIE_NAME" title="COOKIE_NAME :: Name of the cookie that (optionally) stores the payload."><span class="description">Name of the cookie that (optionally) stores the payload.</span><pre>COOKIE_NAME</pre></a></li>
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_config" title="$config() :: Config values."><span class="description"></span><pre>$config</pre></a></li>
+<li class="property private "><a href="#property_payload" title="$payload() :: Decoded and verified payload."><span class="description"></span><pre>$payload</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Constants" class="icon-custom icon-constant"></i> Constants
+                    <ul><li class="constant  "><a href="#constant_COOKIE_NAME" title="COOKIE_NAME() :: Name of the cookie that (optionally) stores the payload."><span class="description">Name of the cookie that (optionally) stores the payload.</span><pre>COOKIE_NAME</pre></a></li></ul>
+</li>
 </ul>
 </div>
 <div class="span8">
-<a name="%5CMonk%5CId" id="\Monk\Id"></a><ul class="breadcrumb">
+<a id="\Monk\Id"></a><ul class="breadcrumb">
 <li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+<a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/Monk.html">Monk</a></li>
 <li class="active">
 <span class="divider">\</span><a href="../classes/Monk.Id.html">Id</a>
 </li>
 </ul>
-<div href="../classes/Monk.Id.html" class="element class">
-<p class="short_description">Integrate Monk ID on the server-side by accessing payloads from the
-client-side JavaScript.</p>
+<div class="element class">
+<p class="short_description">Integrate Monk ID authentication and single sign-on for apps and websites
+on the server-side.</p>
 <div class="details">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>author</th>
@@ -85,18 +121,18 @@ client-side JavaScript.</p>
 </tr>
 <tr>
 <th>copyright</th>
-<td>2013 Monk Development, Inc.</td>
+<td>2014 Monk Development, Inc.</td>
 </tr>
 </table>
 <h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a name="config" id="config"></a><div class="element clickable method public config" data-toggle="collapse" data-target=".config .collapse">
-<h2>Get or set a config value.</h2>
-<pre>config(string $key, mixed $value) : mixed</pre>
-<div class="labels"></div>
+<i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_config"></a><div class="element clickable method public method_config" data-toggle="collapse" data-target=".method_config .collapse" title="public">
+<h2>Get or set a config value. Attempts to load the config if it hasn't
+already been loaded.</h2>
+<pre>config(string $key, mixed $value<code> = null</code>) : mixed</pre>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"><p>Attempts to load the config if it hasn't
-already been loaded.</p></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$key</h4>
@@ -106,7 +142,7 @@ already been loaded.</p></p>
 <code>mixed</code><p>New config value. Leave unset to get a config value.</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
-<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<th><code>\Exception</code></th>
 <td>If the config can't be loaded or is invalid.</td>
 </tr></table>
 <h3>Returns</h3>
@@ -114,24 +150,24 @@ already been loaded.</p></p>
 <code>mixed</code>Config value.</div>
 </div></div>
 </div>
-<a name="loadConfig" id="loadConfig"></a><div class="element clickable method public loadConfig" data-toggle="collapse" data-target=".loadConfig .collapse">
+<a id="method_loadConfig"></a><div class="element clickable method public method_loadConfig" data-toggle="collapse" data-target=".method_loadConfig .collapse" title="public">
 <h2>Load an INI config file for a specific environment.</h2>
-<pre>loadConfig(string $path, string $environment) : array</pre>
-<div class="labels"></div>
+<pre>loadConfig(string $path<code> = null</code>, string $environment<code> = null</code>) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$path</h4>
-<code>string</code><p>Path of INI config file to load. Leave <code>null</code> to read from environment's <code>MONK_ID_CONFIG</code> value.</p>
-</div>
+<code>string</code><p>Path of INI config file to load. Leave <code>null</code> to
+  read from environment's <code>MONK_ID_CONFIG</code> value.</p></div>
 <div class="subelement argument">
 <h4>$environment</h4>
-<code>string</code><p>Environment section to use. Leave <code>null</code> to read from environment's <code>MONK_ID_ENV</code> value. Defaults to <code>development</code>.</p>
-</div>
+<code>string</code><p>Environment section to use. Leave <code>null</code> to
+  read from environment's <code>MONK_ID_ENV</code> value. Defaults to <code>development</code>.</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
-<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<th><code>\Exception</code></th>
 <td>If the file doesn't exist or can't be read.</td>
 </tr></table>
 <h3>Returns</h3>
@@ -139,62 +175,193 @@ already been loaded.</p></p>
 <code>array</code>Loaded config values.</div>
 </div></div>
 </div>
-<a name="loadPayload" id="loadPayload"></a><div class="element clickable method public loadPayload" data-toggle="collapse" data-target=".loadPayload .collapse">
+<a id="method_loadPayload"></a><div class="element clickable method public method_loadPayload" data-toggle="collapse" data-target=".method_loadPayload .collapse" title="public">
 <h2>Load a payload from the client-side.</h2>
-<pre>loadPayload(string | array $encodedPayload) : array</pre>
-<div class="labels"></div>
+<pre>loadPayload(string|array $encodedPayload<code> = null</code>) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$encodedPayload</h4>
-<code>string</code><code>array</code><p>Encoded payload or cookies array to automatically load the payload from. Leave <code>null</code> to read from global <code>$_COOKIE</code>.</p>
-</div>
+<code>string</code><code>array</code><p>Encoded payload or cookies array to
+  automatically load the payload from. Leave <code>null</code> to read from global
+  <code>$_COOKIE</code>.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>Decoded and verified payload. Empty if there's no payload or it fails verification.</div>
+<code>array</code>Decoded and verified payload. Empty if there's no payload
+  or it fails verification.</div>
 </div></div>
 </div>
-<a name="signedIn" id="signedIn"></a><div class="element clickable method public signedIn" data-toggle="collapse" data-target=".signedIn .collapse">
+<a id="method_signedIn"></a><div class="element clickable method public method_signedIn" data-toggle="collapse" data-target=".method_signedIn .collapse" title="public">
 <h2>Check whether there's a signed in user.</h2>
 <pre>signedIn() : bool</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>bool</code>Whether there's a signed in user.</div>
 </div></div>
 </div>
-<a name="userEmail" id="userEmail"></a><div class="element clickable method public userEmail" data-toggle="collapse" data-target=".userEmail .collapse">
+<a id="method_userEmail"></a><div class="element clickable method public method_userEmail" data-toggle="collapse" data-target=".method_userEmail .collapse" title="public">
 <h2>Get the signed in user's email address.</h2>
 <pre>userEmail() : string | null</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code><code>null</code>Email address if signed in user or `null` if no signed in user.</div>
+<code>string</code><code>null</code>Email address if signed in user or `null` if no
+  signed in user.</div>
 </div></div>
 </div>
-<a name="userId" id="userId"></a><div class="element clickable method public userId" data-toggle="collapse" data-target=".userId .collapse">
+<a id="method_userId"></a><div class="element clickable method public method_userId" data-toggle="collapse" data-target=".method_userId .collapse" title="public">
 <h2>Get the signed in user's UUID.</h2>
 <pre>userId() : string | null</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code><code>null</code>UUID if signed in user or `null` if no signed in user.</div>
+<code>string</code><code>null</code>UUID if signed in user or `null` if no signed in
+  user.</div>
+</div></div>
+</div>
+<a id="method___construct"></a><div class="element clickable method private method___construct" data-toggle="collapse" data-target=".method___construct .collapse" title="private">
+<h2>Prevent the class from being instantiated as all data and methods are
+static.</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_decodePayload"></a><div class="element clickable method private method_decodePayload" data-toggle="collapse" data-target=".method_decodePayload .collapse" title="private">
+<h2>Decode a payload from the client-side.</h2>
+<pre>decodePayload(string $encodedPayload) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$encodedPayload</h4>
+<code>string</code><p>Encoded payload.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>If payload can't be decoded.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Decoded payload.</div>
+</div></div>
+</div>
+<a id="method_expectedSignature"></a><div class="element clickable method private method_expectedSignature" data-toggle="collapse" data-target=".method_expectedSignature .collapse" title="private">
+<h2>Generate the expected signature of a payload using the app's secret.</h2>
+<pre>expectedSignature(array $payload) : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$payload</h4>
+<code>array</code><p>Decoded payload.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Expected signature of the payload.</div>
+</div></div>
+</div>
+<a id="method_payload"></a><div class="element clickable method private method_payload" data-toggle="collapse" data-target=".method_payload .collapse" title="private">
+<h2>Get the loaded payload.</h2>
+<pre>payload() : array</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Loaded payload. Empty if there's no payload or it failed
+  verification.</div>
+</div></div>
+</div>
+<a id="method_payloadUser"></a><div class="element clickable method private method_payloadUser" data-toggle="collapse" data-target=".method_payloadUser .collapse" title="private">
+<h2>Get a value from the `user` object of the loaded payload.</h2>
+<pre>payloadUser(string $key) : mixed</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Name of value.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>Requested value or `null` if not set.</div>
+</div></div>
+</div>
+<a id="method_verifyConfig"></a><div class="element clickable method private method_verifyConfig" data-toggle="collapse" data-target=".method_verifyConfig .collapse" title="private">
+<h2>Verify that a config has all the required values.</h2>
+<pre>verifyConfig(array $config<code> = null</code>) : true</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$config</h4>
+<code>array</code><p>Config values.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>If invalid.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>true</code>If valid.</div>
+</div></div>
+</div>
+<a id="method_verifyPayload"></a><div class="element clickable method private method_verifyPayload" data-toggle="collapse" data-target=".method_verifyPayload .collapse" title="private">
+<h2>Verify that a payload hasn't been tampered with or faked by comparing
+signatures.</h2>
+<pre>verifyPayload(array $payload) : bool</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$payload</h4>
+<code>array</code><p>Decoded payload.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>Whether the payload is legit.</div>
 </div></div>
 </div>
 <h3>
-<i class="icon-custom icon-constant"></i> Constants</h3>
-<a name="COOKIE_NAME" id="COOKIE_NAME"> </a><div class="element clickable constant  COOKIE_NAME" data-toggle="collapse" data-target=".COOKIE_NAME .collapse">
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_config"> </a><div class="element clickable property private property_config" data-toggle="collapse" data-target=".property_config .collapse" title="private">
+<h2>Config values.</h2>
+<pre>$config : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_payload"> </a><div class="element clickable property private property_payload" data-toggle="collapse" data-target=".property_payload .collapse" title="private">
+<h2>Decoded and verified payload.</h2>
+<pre>$payload : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_COOKIE_NAME"> </a><div class="element clickable constant  constant_COOKIE_NAME" data-toggle="collapse" data-target=".constant_COOKIE_NAME .collapse" title="">
 <h2>Name of the cookie that (optionally) stores the payload.</h2>
-<pre>COOKIE_NAME </pre>
+<pre>COOKIE_NAME = '_monkIdPayload' </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
@@ -202,8 +369,9 @@ already been loaded.</p></p>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
-            generated on 2014-02-11T12:40:27-06:00.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.3.2
+</a> and<br>
+            generated on 2014-03-28T14:17:34-05:00.<br></footer></div>
 </div>
 </body>
 </html>
