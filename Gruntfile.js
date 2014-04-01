@@ -60,7 +60,7 @@ module.exports = function (grunt) {
       options: {
         bin: '<%= paths.bin %>/phpmd',
         reportFormat: 'text',
-        rulesets: ['cleancode', 'codesize', 'controversial', 'design', 'naming', 'unusedcode'].join(',')
+        rulesets: ['codesize', 'controversial', 'design', 'naming', 'unusedcode'].join(',')
       }
     },
     prompt: {
