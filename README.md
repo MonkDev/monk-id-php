@@ -141,30 +141,43 @@ automatically runs a number of them on changes to the source.
 Each tool can also be run individually:
 
 *   [php -l](http://www.php.net/manual/en/function.php-check-syntax.php)
+
     ```bash
     $ grunt phplint
     ```
+
 *   [PHPLOC](https://github.com/sebastianbergmann/phploc)
+
     ```bash
     $ grunt phploc
     ```
+
 *   [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+
     ```bash
     $ grunt phpcs
     ```
+
 *   [PHP Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd)
+
     ```bash
     $ grunt phpcpd
     ```
+
 *   [PHP Mess Detector](http://phpmd.org)
+
     ```bash
     $ grunt phpmd
     ```
+
 *   [PHP Dead Code Detector](https://github.com/sebastianbergmann/phpdcd)
+
     ```bash
     $ grunt phpdcd
     ```
+
 *   [SensioLabs Security Checker](https://github.com/sensiolabs/security-checker)
+
     ```bash
     $ grunt security-checker
     ```
