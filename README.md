@@ -182,10 +182,15 @@ Each tool can also be run individually:
     $ grunt security-checker
     ```
 
+Finally, [Scrutinizer](https://scrutinizer-ci.com) is setup to perform
+continuous code quality inspection on every commit. The quality badge is
+displayed at the top of this README, with the
+[full report available here](https://scrutinizer-ci.com/g/MonkDev/monk-id-php).
+
 Deployment
 ----------
 
-This library is published to [Packagist](https://packagist.org) to allow
+`monkdev/monk-id` is published to [Packagist](https://packagist.org) to allow
 installation with Composer. Bumping the version, committing, tagging, pushing,
 and updating the generated documentation (in the `gh-pages` branch) can be done
 with a single command:
