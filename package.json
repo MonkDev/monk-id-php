@@ -14,6 +14,12 @@
     "url": "git://github.com/MonkDev/monk-id-php.git"
   },
   "bugs": "https://github.com/MonkDev/monk-id-php/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/MonkDev/monk-id-php/blob/master/LICENSE"
+    }
+  ],
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-bump": "~0.0.13",
