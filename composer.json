@@ -1,7 +1,7 @@
 {
   "name": "monkdev/monk-id",
-  "type": "library",
   "description": "Integrate Monk ID authentication and single sign-on for apps and websites on the server-side.",
+  "type": "library",
   "keywords": ["monk", "monkdev", "monkid", "id", "login", "logout", "signin", "signout", "signup"],
   "homepage": "https://github.com/MonkDev/monk-id-php",
   "license": "MIT",
@@ -12,9 +12,12 @@
       "role": "Developer"
     }
   ],
+  "support": {
+    "issues": "https://github.com/MonkDev/monk-id-php/issues"
+  },
   "autoload": {
-    "psr-0": {
-      "Monk\\": "lib/"
+    "psr-4": {
+      "Monk\\": "lib/Monk/"
     }
   },
   "require": {
