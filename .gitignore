@@ -1,5 +1,6 @@
 .grunt
 phpdoc.xml
+phpunit.xml
 doc/
 node_modules/
 vendor/

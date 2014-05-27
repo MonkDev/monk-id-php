@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit
+    backupStaticAttributes="true"
+    bootstrap="tests/bootstrap.php"
+    colors="true"
+    convertNoticesToExceptions="false"
+    strict="true">
+  <testsuites>
+    <testsuite name="Monk ID PHP">
+      <directory>tests/lib</directory>
+    </testsuite>
+  </testsuites>
+  <logging>
+    <log type="coverage-text" target="php://stdout" />
+  </logging>
+</phpunit>
