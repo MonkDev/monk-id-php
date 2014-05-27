@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<phpunit
-    backupStaticAttributes="true"
-    bootstrap="tests/bootstrap.php"
-    colors="true"
-    convertNoticesToExceptions="false"
-    strict="true">
+<phpunit backupStaticAttributes="true"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="false"
+         strict="true">
   <testsuites>
     <testsuite name="Monk ID PHP">
       <directory>tests/lib</directory>
