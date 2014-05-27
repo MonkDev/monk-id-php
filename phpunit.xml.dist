@@ -2,9 +2,7 @@
 <phpunit backupStaticAttributes="true"
          bootstrap="tests/bootstrap.php"
          colors="true"
-         convertErrorsToExceptions="false"
          convertNoticesToExceptions="false"
-         convertWarningsToExceptions="false"
          strict="true">
   <testsuites>
     <testsuite name="Monk ID PHP">
@@ -14,4 +12,7 @@
   <logging>
     <log type="coverage-text" target="php://stdout" />
   </logging>
+  <php>
+    <ini name="display_errors" value="Off" />
+  </php>
 </phpunit>
