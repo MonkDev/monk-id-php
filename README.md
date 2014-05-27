@@ -109,12 +109,22 @@ Start by running the default Grunt task:
 $ grunt
 ```
 
-This will ensure the source is linted, checked for quality, and then watched for
-changes.
+This will ensure the source is linted, tested, checked for quality, and then
+watched for changes.
 
-During development, changes must be tested manually since an automated test
-suite does not yet exist. This is best done by requiring the library locally in
-an app or website that integrates it already.
+### Tests
+
+Testing is done with [PHPUnit](http://phpunit.de). To run the tests:
+
+```bash
+$ grunt test
+```
+
+Grunt is setup to run the tests on changes to the source/tests. A code coverage
+report is output after the test results.
+
+While the test suite is complete, it's not a bad idea to also test changes
+manually in real-world integrations.
 
 ### Documentation
 
@@ -136,10 +146,8 @@ all at once:
 $ grunt quality
 ```
 
-The `default` and `build` tasks include this, and `watch` (part of `default`)
-automatically runs a number of them on changes to the source.
-
-Each tool can also be run individually:
+Grunt is setup to run them on changes to the source. Each tool can also be run
+individually:
 
 *   [php -l](http://www.php.net/manual/en/function.php-check-syntax.php)
 

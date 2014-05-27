@@ -63,6 +63,14 @@ module.exports = function (grunt) {
         rulesets: ['codesize', 'controversial', 'design', 'naming', 'unusedcode'].join(',')
       }
     },
+    phpunit: {
+      classes: {
+        dir: 'tests/lib'
+      },
+      options: {
+        bin: '<%= paths.bin %>/phpunit'
+      }
+    },
     prompt: {
       deploy: {
         options: {
@@ -135,6 +143,13 @@ module.exports = function (grunt) {
         files: '<%= phplint.src %>',
         tasks: 'phplint'
       },
+      phpunit: {
+        files: [
+          '<%= phpunit.classes.dir %>/**/*.php',
+          '<%= phpcs.lib.dir %>'
+        ],
+        tasks: 'phpunit'
+      },
       'security-checker': {
         files: 'composer.json',
         tasks: 'security-checker'
@@ -154,8 +169,9 @@ module.exports = function (grunt) {
   grunt.registerTask('security-checker', ['shell:security-checker']);
 
   grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('test', ['phpunit']);
   grunt.registerTask('quality', ['phplint', 'phpcs', 'phpcpd', 'phploc', 'phpdcd', 'phpmd', 'security-checker']);
-  grunt.registerTask('build', ['jshint', 'quality', 'phpdoc']);
+  grunt.registerTask('build', ['jshint', 'test', 'quality', 'phpdoc']);
   grunt.registerTask('deploy', ['prompt:deploy', 'bump-increment', 'build', 'bump::commit-only', 'gh-pages']);
 
   grunt.loadNpmTasks('grunt-bump');
@@ -166,6 +182,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-phpcs');
   grunt.loadNpmTasks('grunt-phplint');
   grunt.loadNpmTasks('grunt-phpmd');
+  grunt.loadNpmTasks('grunt-phpunit');
   grunt.loadNpmTasks('grunt-prompt');
   grunt.loadNpmTasks('grunt-shell');
 };

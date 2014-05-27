@@ -24,9 +24,10 @@
     "php": ">=5.3.0"
   },
   "require-dev": {
-    "phpdocumentor/phpdocumentor": "~2.3",
+    "phpdocumentor/phpdocumentor": "~2.5",
     "phploc/phploc": "~2.0",
     "phpmd/phpmd": "~1.5",
+    "phpunit/phpunit": "~4.1",
     "sebastian/phpcpd": "~2.0",
     "sebastian/phpdcd": "~1.0",
     "sensiolabs/security-checker": "~1.3",
