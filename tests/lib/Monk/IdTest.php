@@ -98,7 +98,7 @@
      * @expectedException \Exception
      */
     public function testLoadConfigWhenConfigIsNotValid() {
-      Monk\Id::loadConfig(TESTS_CONFIG_PATH . '/monkIdInvalid.ini', Helpers::configEnv());
+      Monk\Id::loadConfig(TESTS_CONFIG_PATH . DS . 'monkIdInvalid.ini', Helpers::configEnv());
     }
 
     /**

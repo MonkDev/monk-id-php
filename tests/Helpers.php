@@ -3,11 +3,11 @@
   class Helpers {
 
     public static function configFilePath() {
-      return TESTS_CONFIG_PATH . '/monkId.ini';
+      return TESTS_CONFIG_PATH . DS . 'monkId.ini';
     }
 
     public static function configFileAltPath() {
-      return TESTS_CONFIG_PATH . '/monkIdAlt.ini';
+      return TESTS_CONFIG_PATH . DS . 'monkIdAlt.ini';
     }
 
     public static function validPayload() {
