@@ -4,6 +4,7 @@ Monk ID PHP
 [![Latest Stable Version](https://poser.pugx.org/monkdev/monk-id/v/stable.png)](https://packagist.org/packages/monkdev/monk-id)
 [![Build Status](https://travis-ci.org/MonkDev/monk-id-php.svg?branch=dev)](https://travis-ci.org/MonkDev/monk-id-php)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MonkDev/monk-id-php/badges/quality-score.png?s=7bb86d012d75c7911d9d7bd1c7706cfe811e5d68)](https://scrutinizer-ci.com/g/MonkDev/monk-id-php/)
+[![Coverage Status](https://coveralls.io/repos/MonkDev/monk-id-php/badge.png?branch=dev)](https://coveralls.io/r/MonkDev/monk-id-php?branch=dev)
 [![Dependency Status](https://gemnasium.com/MonkDev/monk-id-php.svg)](https://gemnasium.com/MonkDev/monk-id-php)
 
 Integrate Monk ID authentication and single sign-on for apps and websites on the
@@ -124,6 +125,11 @@ $ grunt test
 Grunt is setup to run the tests on changes to the source/tests. A code coverage
 report is output after the test results.
 
+Continuous integration is setup through [Travis CI](https://travis-ci.org/MonkDev/monk-id-php)
+to run the tests against PHP v5.3, v5.4, and v5.5. The code coverage results are
+sent to [Coveralls](https://coveralls.io/r/MonkDev/monk-id-php) during CI for
+tracking over time. Badges for both are dispayed at the top of this README.
+
 While the test suite is complete, it's not a bad idea to also test changes
 manually in real-world integrations.
 
@@ -192,10 +198,9 @@ individually:
     $ grunt security-checker
     ```
 
-Finally, [Scrutinizer](https://scrutinizer-ci.com) is setup to perform
-continuous code quality inspection on every commit. The quality badge is
-displayed at the top of this README, with the
-[full report available here](https://scrutinizer-ci.com/g/MonkDev/monk-id-php).
+[Scrutinizer](https://scrutinizer-ci.com/g/MonkDev/monk-id-php) is setup to
+perform continuous code quality inspection. The quality badge is displayed at
+the top of this README.
 
 Deployment
 ----------
