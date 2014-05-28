@@ -28,6 +28,7 @@
     "phploc/phploc": "~2.0",
     "phpmd/phpmd": "~1.5",
     "phpunit/phpunit": "~4.1",
+    "satooshi/php-coveralls": "dev-master",
     "sebastian/phpcpd": "~2.0",
     "sebastian/phpdcd": "~1.0",
     "sensiolabs/security-checker": "~1.3",
