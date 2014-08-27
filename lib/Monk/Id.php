@@ -112,6 +112,30 @@
     }
 
     /**
+     * Select a payload from the first place one can be found. First in the
+     * `$encodedPayload` param, then in the global `$_COOKIE`.
+     *
+     * @param  string|array $encodedPayload Encoded payload or cookies array to
+     *   select the payload from.
+     * @return string Encoded payload.
+     */
+    private static function selectPayload($encodedPayload = null) {
+      if ($encodedPayload) {
+        if (is_array($encodedPayload)) {
+          $payload = $encodedPayload[self::COOKIE_NAME];
+        }
+        else {
+          $payload = $encodedPayload;
+        }
+      }
+      else {
+        $payload = $_COOKIE[self::COOKIE_NAME];
+      }
+
+      return $payload;
+    }
+
+    /**
      * Decode a payload from the client-side.
      *
      * @param  string $encodedPayload Encoded payload.
@@ -175,17 +199,7 @@
      *   or it fails verification.
      */
     public static function loadPayload($encodedPayload = null) {
-      if ($encodedPayload) {
-        if (is_array($encodedPayload)) {
-          $payload = $encodedPayload[self::COOKIE_NAME];
-        }
-        else {
-          $payload = $encodedPayload;
-        }
-      }
-      else {
-        $payload = $_COOKIE[self::COOKIE_NAME];
-      }
+      $payload = self::selectPayload($encodedPayload);
 
       if (!$payload) {
         return self::$payload = array();
