@@ -17,9 +17,8 @@
     public static function expectedPayload() {
       return array(
         'user' => array(
-          'id'        => '62c988ba-13d8-473e-adeb-8f7d2c62846a',
-          'email'     => 'jstayton@monkdevelopment.com',
-          'signature' => "9iFa+KXySe1/Kon3HWF+KfTPT2v1YwC+mTAABJ4AzlEfd6dtPmGYjUzwv9KX\nomrkyaLB/hB7+XLGAn599K+9Ew==\n"
+          'id'    => '62c988ba-13d8-473e-adeb-8f7d2c62846a',
+          'email' => 'jstayton@monkdevelopment.com'
         )
       );
     }
