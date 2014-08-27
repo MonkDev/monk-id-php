@@ -154,6 +154,18 @@
     }
 
     /**
+     * Clean a payload of values that shouldn't be made accessible to the app.
+     *
+     * @param  array $payload Decoded payload.
+     * @return array Cleaned payload.
+     */
+    private static function cleanPayload(array $payload) {
+      unset($payload['user']['signature']);
+
+      return $payload;
+    }
+
+    /**
      * Load a payload from the client-side.
      *
      * @param  string|array $encodedPayload Encoded payload or cookies array to
@@ -182,6 +194,7 @@
       try {
         $payload = self::decodePayload($payload);
         $verified = self::verifyPayload($payload);
+        $payload = self::cleanPayload($payload);
       }
       catch (\Exception $e) {
         $verified = false;
