@@ -7,7 +7,8 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     paths: {
       bin: 'vendor/bin',
-      lib: 'lib/**/*.php'
+      lib: 'lib/**/*.php',
+      tests: 'tests/**/*.php'
     },
     bump: {
       options: {
@@ -43,7 +44,10 @@ module.exports = function (grunt) {
     },
     phpcs: {
       lib: {
-        dir: ['<%= paths.lib %>']
+        dir: [
+          '<%= paths.lib %>',
+          '<%= paths.tests %>'
+        ]
       },
       options: {
         bin: '<%= paths.bin %>/phpcs',
@@ -51,7 +55,10 @@ module.exports = function (grunt) {
       }
     },
     phplint: {
-      src: '<%= paths.lib %>'
+      src: [
+        '<%= paths.lib %>',
+        '<%= paths.tests %>'
+      ]
     },
     phpmd: {
       lib: {
