@@ -35,6 +35,8 @@ class Id
     /**
      * Prevent the class from being instantiated as all data and methods are
      * static.
+     *
+     * @codeCoverageIgnore
      */
     private function __construct()
     {
