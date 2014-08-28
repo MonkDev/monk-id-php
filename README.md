@@ -130,9 +130,12 @@ Grunt is setup to run the tests on changes to the source/tests. A code coverage
 report is output after the test results.
 
 Continuous integration is setup through [Travis CI](https://travis-ci.org/MonkDev/monk-id-php)
-to run the tests against PHP v5.3, v5.4, and v5.5. The code coverage results are
-sent to [Coveralls](https://coveralls.io/r/MonkDev/monk-id-php) during CI for
-tracking over time. Badges for both are dispayed at the top of this README.
+to run the tests against PHP v5.3, v5.4, and v5.5.
+([Circle CI](https://circleci.com/gh/MonkDev/monk-id-php) is also setup to run
+the tests against PHP v5.3, but is backup for now until multiple versions can
+easily be specified.) The code coverage results are sent to [Coveralls](https://coveralls.io/r/MonkDev/monk-id-php)
+during CI for tracking over time. Badges for both are dispayed at the top of
+this README.
 
 While the test suite is complete, it's not a bad idea to also test changes
 manually in real-world integrations.
