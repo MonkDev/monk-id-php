@@ -1,6 +1,6 @@
 {
   "name": "monk-id",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Monk ID PHP",
   "description": "Integrate Monk ID authentication and single sign-on for apps and websites on the server-side.",
   "homepage": "https://monkid.com",
