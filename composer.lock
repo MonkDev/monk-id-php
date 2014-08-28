@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "78bb694da2f45f3a8a18d9f1436ee17d",
+    "hash": "1849174b2565a7a2801fe120ca643c3b",
     "packages": [
 
     ],
@@ -1664,33 +1664,45 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "1.5.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "692b7b1b64518091b2b1bea91b489dbb13598c07"
+                "reference": "68ced5452910d3555a38720bd87f5f2356c5a003"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/692b7b1b64518091b2b1bea91b489dbb13598c07",
-                "reference": "692b7b1b64518091b2b1bea91b489dbb13598c07",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/68ced5452910d3555a38720bd87f5f2356c5a003",
+                "reference": "68ced5452910d3555a38720bd87f5f2356c5a003",
                 "shasum": ""
             },
             "require": {
-                "pdepend/pdepend": ">=1.1.1",
-                "php": ">=5.3.0"
+                "pdepend/pdepend": "2.0.*",
+                "php": ">=5.3.0",
+                "symfony/config": "@stable",
+                "symfony/dependency-injection": "@stable",
+                "symfony/filesystem": "@stable"
             },
             "bin": [
                 "src/bin/phpmd"
             ],
             "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPMD\\": "src/main/php",
+                    "PDepend\\": "vendor/pdepend/pdepend/src/main/php/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "../../pdepend/pdepend/src/main/php",
                 "src/main/php"
             ],
+            "license": [
+                "BSD-3-Clause"
+            ],
             "description": "Official version of PHPMD handled with Composer.",
-            "time": "2013-07-26 14:47:02"
+            "time": "2014-05-21 12:45:23"
         },
         {
             "name": "phpoption/phpoption",
@@ -2741,16 +2753,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v1.3.4",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "da1f9d19c80eac2b6ae8043bb92b7c7a16d00713"
+                "reference": "5b4eb4743ebe68276c911c84101ecdf4a9ae76ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/da1f9d19c80eac2b6ae8043bb92b7c7a16d00713",
-                "reference": "da1f9d19c80eac2b6ae8043bb92b7c7a16d00713",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/5b4eb4743ebe68276c911c84101ecdf4a9ae76ee",
+                "reference": "5b4eb4743ebe68276c911c84101ecdf4a9ae76ee",
                 "shasum": ""
             },
             "require": {
@@ -2763,7 +2775,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -2782,7 +2794,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2014-07-08 18:12:35"
+            "time": "2014-07-19 10:52:35"
         },
         {
             "name": "squizlabs/php_codesniffer",
