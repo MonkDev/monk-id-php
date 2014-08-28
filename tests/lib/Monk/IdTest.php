@@ -1,208 +1,239 @@
 <?php
+namespace Tests;
 
-  class IdTest extends PHPUnit_Framework_TestCase {
+use Tests\Helpers as Helpers;
+use \Monk\Id as Id;
 
+class IdTest extends \PHPUnit_Framework_TestCase
+{
     /**
      * ::COOKIE_NAME
      */
 
-    public function testCookieName() {
-      $this->assertEquals(Monk\Id::COOKIE_NAME, '_monkIdPayload');
+    public function testCookieName()
+    {
+        $this->assertEquals(Id::COOKIE_NAME, '_monkIdPayload');
     }
 
     /**
      * .config
      */
 
-    public function testConfigGet() {
-      Helpers::loadConfig();
+    public function testConfigGet()
+    {
+        Helpers::loadConfig();
 
-      $this->assertEquals(Monk\Id::config('app_id'), 'ca13c9d1-6600-490e-a448-adb99e2eb906');
+        $this->assertEquals(Id::config('app_id'), 'ca13c9d1-6600-490e-a448-adb99e2eb906');
     }
 
-    public function testConfigSet() {
-      Helpers::loadConfig();
+    public function testConfigSet()
+    {
+        Helpers::loadConfig();
 
-      Monk\Id::config('app_id', 'set_app_id');
+        Id::config('app_id', 'set_app_id');
 
-      $this->assertEquals(Monk\Id::config('app_id'), 'set_app_id');
+        $this->assertEquals(Id::config('app_id'), 'set_app_id');
     }
 
     /**
      * @expectedException        \Exception
      * @expectedExceptionMessage no `app_id` config value
      */
-    public function testConfigUnsetRequiredValue() {
-      Helpers::loadConfig();
+    public function testConfigUnsetRequiredValue()
+    {
+        Helpers::loadConfig();
 
-      Monk\Id::config('app_id', '');
+        Id::config('app_id', '');
     }
 
-    public function testConfigWhenConfigIsNotLoaded() {
-      Helpers::setConfigEnv();
+    public function testConfigWhenConfigIsNotLoaded()
+    {
+        Helpers::setConfigEnv();
 
-      $this->assertEquals(Monk\Id::config('app_id'), 'env_app_id');
+        $this->assertEquals(Id::config('app_id'), 'env_app_id');
 
-      Helpers::resetConfigEnv();
+        Helpers::resetConfigEnv();
     }
 
     /**
      * .loadConfig
      */
 
-    public function testLoadConfigWhenPathIsSpecified() {
-      $this->assertEquals(Monk\Id::loadConfig(Helpers::configFilePath(), Helpers::configEnv()),
-                          Helpers::expectedConfigTest());
+    public function testLoadConfigWhenPathIsSpecified()
+    {
+        $this->assertEquals(
+            Id::loadConfig(Helpers::configFilePath(), Helpers::configEnv()),
+            Helpers::expectedConfigTest()
+        );
     }
 
-    public function testLoadConfigWhenPathIsNotSpecified() {
-      Helpers::setConfigEnv();
+    public function testLoadConfigWhenPathIsNotSpecified()
+    {
+        Helpers::setConfigEnv();
 
-      $this->assertEquals(Monk\Id::loadConfig(null, 'env'), Helpers::expectedConfig('env'));
+        $this->assertEquals(Id::loadConfig(null, 'env'), Helpers::expectedConfig('env'));
 
-      Helpers::resetConfigEnv();
-    }
-
-    /**
-     * @expectedException \Exception
-     */
-    public function testLoadConfigWhenPathDoesNotExist() {
-      Monk\Id::loadConfig('/does/not/exist.ini', Helpers::configEnv());
-    }
-
-    public function testLoadConfigWhenEnvironmentIsSpecified() {
-      $this->assertEquals(Monk\Id::loadConfig(Helpers::configFilePath(), Helpers::configEnv()),
-                          Helpers::expectedConfigTest());
-    }
-
-    public function testLoadConfigWhenEnvironmentIsNotSpecified() {
-      Helpers::setConfigEnv();
-
-      $this->assertEquals(Monk\Id::loadConfig(Helpers::configFileAltPath(), null), Helpers::expectedConfig('env'));
-
-      Helpers::resetConfigEnv();
-    }
-
-    public function testLoadConfigWhenEnvironmentIsNotSpecifiedDefault() {
-      $this->assertEquals(Monk\Id::loadConfig(Helpers::configFilePath(), null), Helpers::expectedConfig('development'));
+        Helpers::resetConfigEnv();
     }
 
     /**
      * @expectedException \Exception
      */
-    public function testLoadConfigWhenEnvironmentDoesNotExist() {
-      Monk\Id::loadConfig(Helpers::configFilePath(), 'does_not_exist');
+    public function testLoadConfigWhenPathDoesNotExist()
+    {
+        Id::loadConfig('/does/not/exist.ini', Helpers::configEnv());
+    }
+
+    public function testLoadConfigWhenEnvironmentIsSpecified()
+    {
+        $this->assertEquals(
+            Id::loadConfig(Helpers::configFilePath(), Helpers::configEnv()),
+            Helpers::expectedConfigTest()
+        );
+    }
+
+    public function testLoadConfigWhenEnvironmentIsNotSpecified()
+    {
+        Helpers::setConfigEnv();
+
+        $this->assertEquals(Id::loadConfig(Helpers::configFileAltPath(), null), Helpers::expectedConfig('env'));
+
+        Helpers::resetConfigEnv();
+    }
+
+    public function testLoadConfigWhenEnvironmentIsNotSpecifiedDefault()
+    {
+        $this->assertEquals(Id::loadConfig(Helpers::configFilePath(), null), Helpers::expectedConfig('development'));
     }
 
     /**
      * @expectedException \Exception
      */
-    public function testLoadConfigWhenConfigIsNotValid() {
-      Monk\Id::loadConfig(TESTS_CONFIG_PATH . DS . 'monkIdInvalid.ini', Helpers::configEnv());
+    public function testLoadConfigWhenEnvironmentDoesNotExist()
+    {
+        Id::loadConfig(Helpers::configFilePath(), 'does_not_exist');
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testLoadConfigWhenConfigIsNotValid()
+    {
+        Id::loadConfig(TESTS_CONFIG_PATH . DS . 'monkIdInvalid.ini', Helpers::configEnv());
     }
 
     /**
      * @expectedException        \Exception
      * @expectedExceptionMessage no `app_secret` config value
      */
-    public function testLoadConfigWhenRequiredValueIsNotSet() {
-      Monk\Id::loadConfig(Helpers::configFileAltPath(), 'required');
+    public function testLoadConfigWhenRequiredValueIsNotSet()
+    {
+        Id::loadConfig(Helpers::configFileAltPath(), 'required');
     }
 
     /**
      * .loadPayload
      */
 
-    public function testLoadPayloadString() {
-      Helpers::loadConfig();
+    public function testLoadPayloadString()
+    {
+        Helpers::loadConfig();
 
-      $this->assertEquals(Monk\Id::loadPayload(Helpers::validPayload()), Helpers::expectedPayload());
+        $this->assertEquals(Id::loadPayload(Helpers::validPayload()), Helpers::expectedPayload());
     }
 
-    public function testLoadPayloadArray() {
-      Helpers::loadConfig();
-      $cookies = array(Monk\Id::COOKIE_NAME => Helpers::validPayload());
+    public function testLoadPayloadArray()
+    {
+        Helpers::loadConfig();
+        $cookies = array(Id::COOKIE_NAME => Helpers::validPayload());
 
-      $this->assertEquals(Monk\Id::loadPayload($cookies), Helpers::expectedPayload());
+        $this->assertEquals(Id::loadPayload($cookies), Helpers::expectedPayload());
     }
 
-    public function testLoadPayloadCookie() {
-      Helpers::loadConfig();
+    public function testLoadPayloadCookie()
+    {
+        Helpers::loadConfig();
 
-      $_COOKIE[Monk\Id::COOKIE_NAME] = Helpers::validPayload();
+        $_COOKIE[Id::COOKIE_NAME] = Helpers::validPayload();
 
-      $this->assertEquals(Monk\Id::loadPayload(null), Helpers::expectedPayload());
+        $this->assertEquals(Id::loadPayload(null), Helpers::expectedPayload());
     }
 
-    public function testLoadPayloadWhenCannotBeDecoded() {
-      Helpers::loadConfig();
+    public function testLoadPayloadWhenCannotBeDecoded()
+    {
+        Helpers::loadConfig();
 
-      $this->assertEmpty(Monk\Id::loadPayload('cannot be decoded'));
+        $this->assertEmpty(Id::loadPayload('cannot be decoded'));
     }
 
-    public function testLoadPayloadWhenCannotBeVerified() {
-      Helpers::loadConfig();
+    public function testLoadPayloadWhenCannotBeVerified()
+    {
+        Helpers::loadConfig();
 
-      $this->assertEmpty(Monk\Id::loadPayload(Helpers::invalidPayload()));
+        $this->assertEmpty(Id::loadPayload(Helpers::invalidPayload()));
     }
 
-    public function testLoadPayloadNull() {
-      Helpers::loadConfig();
+    public function testLoadPayloadNull()
+    {
+        Helpers::loadConfig();
 
-      $this->assertEmpty(Monk\Id::loadPayload(null));
+        $this->assertEmpty(Id::loadPayload(null));
     }
 
     /**
      * .signedIn
      */
 
-    public function testSignedInWhenSignedIn() {
-      Helpers::loadConfig();
-      Helpers::loadPayload();
+    public function testSignedInWhenSignedIn()
+    {
+        Helpers::loadConfig();
+        Helpers::loadPayload();
 
-      $this->assertTrue(Monk\Id::signedIn());
+        $this->assertTrue(Id::signedIn());
     }
 
-    public function testSignedInWhenSignedOut() {
-      Helpers::loadConfig();
+    public function testSignedInWhenSignedOut()
+    {
+        Helpers::loadConfig();
 
-      $this->assertFalse(Monk\Id::signedIn());
+        $this->assertFalse(Id::signedIn());
     }
 
     /**
      * .userEmail
      */
 
-    public function testUserEmailWhenSignedIn() {
-      Helpers::loadConfig();
-      Helpers::loadPayload();
+    public function testUserEmailWhenSignedIn()
+    {
+        Helpers::loadConfig();
+        Helpers::loadPayload();
 
-      $this->assertEquals(Monk\Id::userEmail(), 'jstayton@monkdevelopment.com');
+        $this->assertEquals(Id::userEmail(), 'jstayton@monkdevelopment.com');
     }
 
-    public function testUserEmailWhenSignedOut() {
-      Helpers::loadConfig();
+    public function testUserEmailWhenSignedOut()
+    {
+        Helpers::loadConfig();
 
-      $this->assertNull(Monk\Id::userEmail());
+        $this->assertNull(Id::userEmail());
     }
 
     /**
      * .userId
      */
 
-    public function testUserIdWhenSignedIn() {
-      Helpers::loadConfig();
-      Helpers::loadPayload();
+    public function testUserIdWhenSignedIn()
+    {
+        Helpers::loadConfig();
+        Helpers::loadPayload();
 
-      $this->assertEquals(Monk\Id::userId(), '62c988ba-13d8-473e-adeb-8f7d2c62846a');
+        $this->assertEquals(Id::userId(), '62c988ba-13d8-473e-adeb-8f7d2c62846a');
     }
 
-    public function testUserIdWhenSignedOut() {
-      Helpers::loadConfig();
+    public function testUserIdWhenSignedOut()
+    {
+        Helpers::loadConfig();
 
-      $this->assertNull(Monk\Id::userId());
+        $this->assertNull(Id::userId());
     }
-
-  }
-
-?>
+}
