@@ -47,7 +47,7 @@ module.exports = function (grunt) {
       },
       options: {
         bin: '<%= paths.bin %>/phpcs',
-        standard: 'PSR1'
+        standard: 'PSR2'
       }
     },
     phplint: {
