@@ -8,6 +8,8 @@ php:
 
 install: composer install --dev --no-interaction
 
-script: vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
+script:
+  - vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpcs --standard=PSR2 lib/ tests/
 
 after_script: vendor/bin/coveralls -v
