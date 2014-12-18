@@ -124,7 +124,7 @@ module.exports = function (grunt) {
         command: '<%= paths.bin %>/phpdcd <%= paths.lib %>'
       },
       phpdoc: {
-        command: '<%= paths.bin %>/phpdoc.php'
+        command: '<%= paths.bin %>/phpdoc'
       },
       phploc: {
         command: '<%= paths.bin %>/phploc <%= paths.lib %>'
