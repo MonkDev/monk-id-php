@@ -1,5 +1,8 @@
+'use strict';
+
 module.exports = function (grunt) {
-  'use strict';
+  require('time-grunt')(grunt);
+  require('load-grunt-tasks')(grunt);
 
   var optionIncrement = grunt.option('increment');
 
@@ -124,7 +127,7 @@ module.exports = function (grunt) {
         command: '<%= paths.bin %>/phpdcd <%= paths.lib %>'
       },
       phpdoc: {
-        command: '<%= paths.bin %>/phpdoc.php'
+        command: '<%= paths.bin %>/phpdoc'
       },
       phploc: {
         command: '<%= paths.bin %>/phploc <%= paths.lib %>'
@@ -180,16 +183,4 @@ module.exports = function (grunt) {
   grunt.registerTask('quality', ['phplint', 'phpcs', 'phpcpd', 'phploc', 'phpdcd', 'phpmd', 'security-checker']);
   grunt.registerTask('build', ['jshint', 'test', 'quality', 'phpdoc']);
   grunt.registerTask('deploy', ['prompt:deploy', 'bump-increment', 'build', 'bump::commit-only', 'gh-pages']);
-
-  grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-gh-pages');
-  grunt.loadNpmTasks('grunt-phpcpd');
-  grunt.loadNpmTasks('grunt-phpcs');
-  grunt.loadNpmTasks('grunt-phplint');
-  grunt.loadNpmTasks('grunt-phpmd');
-  grunt.loadNpmTasks('grunt-phpunit');
-  grunt.loadNpmTasks('grunt-prompt');
-  grunt.loadNpmTasks('grunt-shell');
 };

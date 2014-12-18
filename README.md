@@ -1,11 +1,11 @@
 Monk ID PHP
 ===========
 
-[![Latest Stable Version](https://poser.pugx.org/monkdev/monk-id/v/stable.png)](https://packagist.org/packages/monkdev/monk-id)
-[![Build Status](https://travis-ci.org/MonkDev/monk-id-php.svg?branch=dev)](https://travis-ci.org/MonkDev/monk-id-php)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MonkDev/monk-id-php/badges/quality-score.png?s=7bb86d012d75c7911d9d7bd1c7706cfe811e5d68)](https://scrutinizer-ci.com/g/MonkDev/monk-id-php/)
-[![Coverage Status](https://coveralls.io/repos/MonkDev/monk-id-php/badge.png?branch=dev)](https://coveralls.io/r/MonkDev/monk-id-php?branch=dev)
-[![Dependency Status](https://gemnasium.com/MonkDev/monk-id-php.svg)](https://gemnasium.com/MonkDev/monk-id-php)
+[![Latest Stable Version](https://img.shields.io/packagist/v/monkdev/monk-id.svg?style=flat)](https://packagist.org/packages/monkdev/monk-id)
+[![Build Status](https://img.shields.io/travis/MonkDev/monk-id-php/dev.svg?style=flat)](https://travis-ci.org/MonkDev/monk-id-php)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/MonkDev/monk-id-php/dev.svg?style=flat)](https://scrutinizer-ci.com/g/MonkDev/monk-id-php/?branch=dev)
+[![Coverage Status](https://img.shields.io/coveralls/MonkDev/monk-id-php/dev.svg?style=flat)](https://coveralls.io/r/MonkDev/monk-id-php?branch=dev)
+[![Dependency Status](https://img.shields.io/gemnasium/MonkDev/monk-id-php.svg?style=flat)](https://gemnasium.com/MonkDev/monk-id-php)
 
 Integrate Monk ID authentication and single sign-on for apps and websites on the
 server-side.
