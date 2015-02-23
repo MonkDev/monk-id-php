@@ -92,23 +92,23 @@ module.exports = function (grunt) {
               choices: [
                 {
                   value: 'build',
-                  name: 'build (x.y.z-N) — append build number for pre-release'
+                  name: 'build (x.y.z-N) -- append build number for pre-release'
                 },
                 {
                   value: 'git',
-                  name: 'git (x.y.z-NNNNN) — append git revision for pre-release'
+                  name: 'git (x.y.z-NNNNN) -- append git revision for pre-release'
                 },
                 {
                   value: 'patch',
-                  name: 'patch (x.y.Z) — backwards-compatible bug fixes'
+                  name: 'patch (x.y.Z) -- backwards-compatible bug fixes'
                 },
                 {
                   value: 'minor',
-                  name: 'minor (x.Y.z) — added functionality in a backwards-compatible manner'
+                  name: 'minor (x.Y.z) -- added functionality in a backwards-compatible manner'
                 },
                 {
                   value: 'major',
-                  name: 'major (X.y.z) — incompatible API changes'
+                  name: 'major (X.y.z) -- incompatible API changes'
                 }
               ],
               when: function () {
