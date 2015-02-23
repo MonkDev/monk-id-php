@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     'gh-pages': {
       options: {
         base: 'doc',
-        message: 'Latest auto-generated docs.'
+        message: 'Latest auto-generated docs. [ci skip]'
       },
       src: '**/*'
     },
