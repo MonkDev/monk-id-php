@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
@@ -111,7 +111,7 @@ module.exports = function (grunt) {
                   name: 'major (X.y.z) -- incompatible API changes'
                 }
               ],
-              when: function () {
+              when: function() {
                 return !optionIncrement;
               }
             }
@@ -167,7 +167,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('bump-increment', 'Increment the version number.', function (inc) {
+  grunt.registerTask('bump-increment', 'Increment the version number.', function(inc) {
     var increment = inc || optionIncrement || grunt.config('deploy.increment');
 
     grunt.task.run('bump:' + increment + ':bump-only');
