@@ -1,23 +1,52 @@
 {
+  /**
+   * Enforcing
+   */
+
   "bitwise": true,
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
   "es3": true,
   "forin": true,
+  "freeze": true,
   "immed": true,
   "indent": 2,
   "latedef": true,
+  "maxcomplexity": 9,
+  "maxdepth": 2,
+  "maxlen": 120,
+  "maxparams": 3,
+  "maxstatements": 15,
   "newcap": true,
   "noarg": true,
+  // False positives: https://github.com/jshint/jshint/issues/2044
+  // "nocomma": true,
   "noempty": true,
+  "nonbsp": true,
   "nonew": true,
-  "plusplus": true,
   "quotmark": "single",
+  // False positives: https://github.com/jshint/jshint/pull/2140
+  // "singleGroups": true,
   "undef": true,
   "unused": true,
+
+  /**
+   * Relaxing
+   */
+
+  "plusplus": true,
   "strict": true,
-  "trailing": true,
-  "maxlen": 120,
-  "node": true
+
+  /**
+   * Environments
+   */
+
+  "node": true,
+
+  /**
+   * Globals
+   */
+
+  "globals": {}
 }
