@@ -25,13 +25,13 @@
   },
   "require-dev": {
     "phpdocumentor/phpdocumentor": "~2.8",
-    "phploc/phploc": "~2.0",
-    "phpmd/phpmd": "~2.1",
-    "phpunit/phpunit": "~4.4",
+    "phploc/phploc": "~2.1",
+    "phpmd/phpmd": "~2.2",
+    "phpunit/phpunit": "~4.8",
     "satooshi/php-coveralls": "dev-master",
     "sebastian/phpcpd": "~2.0",
     "sebastian/phpdcd": "~1.0",
-    "sensiolabs/security-checker": "~2.0",
-    "squizlabs/php_codesniffer": "~2.1"
+    "sensiolabs/security-checker": "~3.0",
+    "squizlabs/php_codesniffer": "~2.3"
   }
 }

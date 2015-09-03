@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     },
     phpcs: {
       lib: {
-        dir: [
+        src: [
           '<%= paths.lib %>',
           '<%= paths.tests %>'
         ]
