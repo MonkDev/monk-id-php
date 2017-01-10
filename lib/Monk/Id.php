@@ -8,8 +8,7 @@ namespace Monk;
  * Integrate Monk ID authentication and single sign-on for apps and websites
  * on the server-side.
  *
- * @author    Monk Development, Inc.
- * @copyright 2014 Monk Development, Inc.
+ * @author Monk Development, Inc.
  */
 class Id
 {
