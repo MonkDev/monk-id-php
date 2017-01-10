@@ -9,6 +9,6 @@ general:
 test:
   override:
     - vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
-    - grunt quality
+    - composer quality
   post:
     - vendor/bin/coveralls -v

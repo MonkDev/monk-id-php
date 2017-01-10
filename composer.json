@@ -32,5 +32,16 @@
     "sebastian/phpcpd": "~2.0.2",
     "sensiolabs/security-checker": "~3.0.1",
     "squizlabs/php_codesniffer": "~2.3.3"
+  },
+  "scripts": {
+    "phpcpd": "phpcpd lib/",
+    "phpcs": "phpcs --standard=PSR2 lib/ tests/",
+    "phpdoc": "phpdoc",
+    "phplint": "php -l lib/**/*",
+    "phploc": "phploc lib/",
+    "phpmd": "phpmd lib/ text codesize,controversial,design,naming,unusedcode",
+    "quality": ["@phplint", "@phpcs", "@phpcpd", "@phploc", "@phpmd", "@security-checker"],
+    "security-checker": "security-checker security:check",
+    "test": "phpunit"
   }
 }
