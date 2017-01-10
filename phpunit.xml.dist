@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<phpunit backupStaticAttributes="true"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.7/phpunit.xsd"
+         backupStaticAttributes="true"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutTodoAnnotatedTests="true"
          bootstrap="tests/bootstrap.php"
          colors="true"
          convertNoticesToExceptions="false"
          convertWarningsToExceptions="false"
-         strict="true">
+         verbose="true">
   <testsuites>
     <testsuite name="Monk ID PHP">
-      <directory>tests/lib</directory>
+      <directory suffix="Test.php">tests</directory>
     </testsuite>
   </testsuites>
   <filter>
-    <whitelist>
+    <whitelist processUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">lib</directory>
     </whitelist>
   </filter>
   <logging>
-    <log type="coverage-text" target="php://stdout" />
+    <log type="coverage-text" target="php://stdout" showUncoveredFiles="false" />
   </logging>
   <php>
-    <ini name="display_errors" value="Off" />
+    <ini name="display_errors" value="0" />
+    <ini name="error_reporting" value="22517" />
   </php>
 </phpunit>
