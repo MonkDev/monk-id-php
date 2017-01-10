@@ -88,54 +88,27 @@ and verified.
 Development
 -----------
 
-[Grunt](http://gruntjs.com) is used heavily for development and requires the
-following prerequisites:
-
-*   [Node.js](http://nodejs.org)
-*   [Grunt](http://gruntjs.com) CLI
-
-Once those are installed and working, install the development dependencies:
-
-```bash
-$ npm install
-```
-
-[Composer](http://getcomposer.org) is used for PHP development dependencies,
-which need to be installed as well:
+[Composer](http://getcomposer.org) is used for dependency management and task
+running. Start by installing the dependencies:
 
 ```bash
 $ composer install
 ```
-
-### Workflow
-
-Start by running the default Grunt task:
-
-```bash
-$ grunt
-```
-
-This will ensure the source is linted, tested, checked for quality, and then
-watched for changes.
 
 ### Tests
 
 Testing is done with [PHPUnit](http://phpunit.de). To run the tests:
 
 ```bash
-$ grunt test
+$ composer test
 ```
 
-Grunt is setup to run the tests on changes to the source/tests. A code coverage
-report is output after the test results.
-
 Continuous integration is setup through [Travis CI](https://travis-ci.org/MonkDev/monk-id-php)
-to run the tests against PHP v5.3, v5.4, and v5.5.
-([Circle CI](https://circleci.com/gh/MonkDev/monk-id-php) is also setup to run
-the tests against PHP v5.6, but is backup for now until multiple versions can
-easily be specified.) The code coverage results are sent to [Coveralls](https://coveralls.io/r/MonkDev/monk-id-php)
-during CI for tracking over time. Badges for both are dispayed at the top of
-this README.
+to run the tests against PHP v5.3, v5.4, and v5.5. ([Circle CI](https://circleci.com/gh/MonkDev/monk-id-php)
+is also setup to run the tests against PHP v5.6, but is backup for now until
+multiple versions can easily be specified.) The code coverage results are sent
+to [Coveralls](https://coveralls.io/r/MonkDev/monk-id-php) during CI for
+tracking over time. Badges for both are dispayed at the top of this README.
 
 While the test suite is complete, it's not a bad idea to also test changes
 manually in real-world integrations.
@@ -145,11 +118,10 @@ manually in real-world integrations.
 [phpDocumentor](http://phpdoc.org) is used for code documentation. To build:
 
 ```bash
-$ grunt phpdoc
+$ composer phpdoc
 ```
 
-This creates a `doc` directory (that is ignored by git). The contents are
-automatically published to the `gh-pages` branch when deploying.
+This creates a `doc` directory (that is ignored by git).
 
 ### Quality
 
@@ -157,22 +129,21 @@ A number of code quality tools are configured to aid in development. To run them
 all at once:
 
 ```bash
-$ grunt quality
+$ composer quality
 ```
 
-Grunt is setup to run them on changes to the source. Each tool can also be run
-individually:
+Each tool can also be run individually:
 
 *   [php -l](http://www.php.net/manual/en/function.php-check-syntax.php):
-    `$ grunt phplint`
-*   [PHPLOC](https://github.com/sebastianbergmann/phploc): `$ grunt phploc`
+    `$ composer phplint`
 *   [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer):
-    `$ grunt phpcs`
+    `$ composer phpcs`
 *   [PHP Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd):
-    `$ grunt phpcpd`
-*   [PHP Mess Detector](http://phpmd.org): `$ grunt phpmd`
+    `$ composer phpcpd`
+*   [PHPLOC](https://github.com/sebastianbergmann/phploc): `$ composer phploc`
+*   [PHP Mess Detector](http://phpmd.org): `$ composer phpmd`
 *   [SensioLabs Security Checker](https://github.com/sensiolabs/security-checker):
-    `$ grunt security-checker`
+    `$ composer security-checker`
 
 [Scrutinizer](https://scrutinizer-ci.com/g/MonkDev/monk-id-php) is setup to
 perform continuous code quality inspection. The quality badge is displayed at
@@ -181,16 +152,17 @@ the top of this README.
 Deployment
 ----------
 
-`monkdev/monk-id` is published to [Packagist](https://packagist.org) to allow
-installation with Composer. Bumping the version, committing, tagging, pushing,
-and updating the generated documentation (in the `gh-pages` branch) can be done
-with a single command:
+Publishing a release to [Packagist](https://packagist.org) simply requires
+creating a git tag:
 
 ```bash
-$ grunt deploy [--increment=<increment>]
+$ git tag -a vMAJOR.MINOR.PATCH -m "Version MAJOR.MINOR.PATCH"
+$ git push origin vMAJOR.MINOR.PATCH
 ```
 
-`--increment` can be `build`, `git`, `patch`, `minor`, or `major` (anything
-supported by [grunt-bump](https://github.com/vojtajina/grunt-bump)). If the
-option is excluded, a prompt will provide a list of choices. Be sure to choose
-the correct version by following [Semantic Versioning](http://semver.org).
+Be sure to choose the correct version by following [Semantic Versioning](http://semver.org).
+
+### Publish Documentation
+
+After releasing a new version, the documentation must be manually built and
+published to the `gh-pages` branch.
