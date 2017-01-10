@@ -123,9 +123,6 @@ module.exports = function(grunt) {
       options: {
         stdout: true
       },
-      phpdcd: {
-        command: '<%= paths.bin %>/phpdcd <%= paths.lib %>'
-      },
       phpdoc: {
         command: '<%= paths.bin %>/phpdoc'
       },
@@ -173,14 +170,13 @@ module.exports = function(grunt) {
     grunt.task.run('bump:' + increment + ':bump-only');
   });
 
-  grunt.registerTask('phpdcd', ['shell:phpdcd']);
   grunt.registerTask('phpdoc', ['shell:phpdoc']);
   grunt.registerTask('phploc', ['shell:phploc']);
   grunt.registerTask('security-checker', ['shell:security-checker']);
 
   grunt.registerTask('default', ['build', 'watch']);
   grunt.registerTask('test', ['phpunit']);
-  grunt.registerTask('quality', ['phplint', 'phpcs', 'phpcpd', 'phploc', 'phpdcd', 'phpmd', 'security-checker']);
+  grunt.registerTask('quality', ['phplint', 'phpcs', 'phpcpd', 'phploc', 'phpmd', 'security-checker']);
   grunt.registerTask('build', ['jshint', 'test', 'quality', 'phpdoc']);
   grunt.registerTask('deploy', ['prompt:deploy', 'bump-increment', 'build', 'bump::commit-only', 'gh-pages']);
 };

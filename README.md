@@ -171,8 +171,6 @@ individually:
 *   [PHP Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd):
     `$ grunt phpcpd`
 *   [PHP Mess Detector](http://phpmd.org): `$ grunt phpmd`
-*   [PHP Dead Code Detector](https://github.com/sebastianbergmann/phpdcd):
-    `$ grunt phpdcd`
 *   [SensioLabs Security Checker](https://github.com/sensiolabs/security-checker):
     `$ grunt security-checker`
 
