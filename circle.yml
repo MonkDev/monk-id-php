@@ -6,10 +6,6 @@ general:
   artifacts:
     - "build/logs/clover.xml"
 
-dependencies:
-  pre:
-    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
-
 test:
   override:
     - vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
