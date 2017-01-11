@@ -256,9 +256,9 @@ class Id
     }
 
     /**
-     * Get the signed in user's UUID.
+     * Get the logged in user's UUID.
      *
-     * @return string|null UUID if signed in user or `null` if no signed in
+     * @return string|null UUID if logged in user or `null` if no logged in
      *   user.
      */
     public static function userId()
@@ -267,10 +267,10 @@ class Id
     }
 
     /**
-     * Get the signed in user's email address.
+     * Get the logged in user's email address.
      *
-     * @return string|null Email address if signed in user or `null` if no
-     *   signed in user.
+     * @return string|null Email address if logged in user or `null` if no
+     *   logged in user.
      */
     public static function userEmail()
     {
@@ -278,12 +278,23 @@ class Id
     }
 
     /**
-     * Check whether there's a signed in user.
+     * Check whether there's a logged in user.
      *
-     * @return bool Whether there's a signed in user.
+     * @return bool Whether there's a logged in user.
+     */
+    public static function loggedIn()
+    {
+        return !!self::userId();
+    }
+
+    /**
+     * Check whether there's a logged in user.
+     *
+     * @deprecated 1.1.0 Use `loggedIn`.
+     * @return     bool Whether there's a logged in user.
      */
     public static function signedIn()
     {
-        return !!self::userId();
+        return self::loggedIn();
     }
 }
