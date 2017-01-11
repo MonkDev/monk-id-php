@@ -174,22 +174,34 @@ class IdTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * .signedIn
+     * .loggedIn
      */
 
-    public function testSignedInWhenSignedIn()
+    public function testLoggedInWhenLoggedIn()
     {
         Helpers::loadConfig();
         Helpers::loadPayload();
 
-        $this->assertTrue(Id::signedIn());
+        $this->assertTrue(Id::loggedIn());
     }
 
-    public function testSignedInWhenSignedOut()
+    public function testLoggedInWhenLoggedOut()
     {
         Helpers::loadConfig();
 
-        $this->assertFalse(Id::signedIn());
+        $this->assertFalse(Id::loggedIn());
+    }
+
+    /**
+     * .signedIn
+     */
+
+    public function testSignedInDeprecatedInFavorOfLoggedIn()
+    {
+        Helpers::loadConfig();
+        Helpers::loadPayload();
+
+        $this->assertEquals(Id::signedIn(), Id::loggedIn());
     }
 
     /**

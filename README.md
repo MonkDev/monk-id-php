@@ -68,10 +68,10 @@ the payload. In an MVC framework, this usually means placing it in a method in
 your `ApplicationController` that's executed before the specific action is
 processed.
 
-Once the payload is loaded, you can ask whether the user is signed in:
+Once the payload is loaded, you can ask whether the user is logged in:
 
 ```php
-Monk\Id::signedIn()
+Monk\Id::loggedIn()
 ```
 
 Or for their ID and email:
@@ -81,7 +81,7 @@ Monk\Id::userId()
 Monk\Id::userEmail()
 ```
 
-`null` is returned if the user isn't signed in or the payload can't be decoded
+`null` is returned if the user isn't logged in or the payload can't be decoded
 and verified.
 
 Development
