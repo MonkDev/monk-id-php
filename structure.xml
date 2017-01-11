@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project title="Monk ID PHP" version="2.7.0">
+<project title="Monk ID PHP" version="2.8.5">
   <partials/>
-  <file path="Id.php" generated-path="Id.html" hash="cc806af9ef33d60158fa2d788bf3a505" package="Default">
+  <file path="Id.php" generated-path="Id.html" hash="6f391b731d6d93405413395b9e978639" package="Default">
     <docblock line="0">
       <description>Global Monk namespace.</description>
       <long-description></long-description>
@@ -16,7 +16,7 @@
 on the server-side.</description>
         <long-description></long-description>
         <tag name="author" line="14" description="Monk Development, Inc."/>
-        <tag name="copyright" line="14" description="2014 Monk Development, Inc."/>
+        <tag name="SuppressWarnings" line="14" description="(PHPMD.ElseExpression)"/>
         <tag name="package" line="14" description="Default"/>
       </docblock>
       <constant namespace="Monk" line="19" package="Default">
@@ -89,17 +89,17 @@ already been loaded.</description>
           <type>mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="206" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="207" package="Default">
         <name>loadPayload</name>
         <full_name>\Monk\Id::loadPayload()</full_name>
-        <docblock line="206">
+        <docblock line="207">
           <description>Load a payload from the client-side.</description>
           <long-description></long-description>
-          <tag name="param" line="206" description="&lt;p&gt;Encoded payload or cookies array to&#10;automatically load the payload from. Leave &lt;code&gt;null&lt;/code&gt; to read from global&#10;&lt;code&gt;$_COOKIE&lt;/code&gt;.&lt;/p&gt;" type="string|array" variable="$encodedPayload">
+          <tag name="param" line="207" description="&lt;p&gt;Encoded payload or cookies array to&#10;automatically load the payload from. Leave &lt;code&gt;null&lt;/code&gt; to read from global&#10;&lt;code&gt;$_COOKIE&lt;/code&gt;.&lt;/p&gt;" type="string|array" variable="$encodedPayload">
             <type>string</type>
             <type>array</type>
           </tag>
-          <tag name="return" line="206" description="Decoded and verified payload. Empty if there's no payload&#10;  or it fails verification." type="array">
+          <tag name="return" line="207" description="Decoded and verified payload. Empty if there's no payload&#10;  or it fails verification." type="array">
             <type>array</type>
           </tag>
         </docblock>
@@ -109,47 +109,58 @@ already been loaded.</description>
           <type>string|array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="263" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="264" package="Default">
         <name>userId</name>
         <full_name>\Monk\Id::userId()</full_name>
-        <docblock line="263">
-          <description>Get the signed in user's UUID.</description>
+        <docblock line="264">
+          <description>Get the logged in user's UUID.</description>
           <long-description></long-description>
-          <tag name="return" line="263" description="UUID if signed in user or `null` if no signed in&#10;  user." type="string|null">
+          <tag name="return" line="264" description="UUID if logged in user or `null` if no logged in&#10;  user." type="string|null">
             <type>string</type>
             <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="274" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="275" package="Default">
         <name>userEmail</name>
         <full_name>\Monk\Id::userEmail()</full_name>
-        <docblock line="274">
-          <description>Get the signed in user's email address.</description>
+        <docblock line="275">
+          <description>Get the logged in user's email address.</description>
           <long-description></long-description>
-          <tag name="return" line="274" description="Email address if signed in user or `null` if no&#10;  signed in user." type="string|null">
+          <tag name="return" line="275" description="Email address if logged in user or `null` if no&#10;  logged in user." type="string|null">
             <type>string</type>
             <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="284" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="285" package="Default">
+        <name>loggedIn</name>
+        <full_name>\Monk\Id::loggedIn()</full_name>
+        <docblock line="285">
+          <description>Check whether there's a logged in user.</description>
+          <long-description></long-description>
+          <tag name="return" line="285" description="Whether there's a logged in user." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="296" package="Default">
         <name>signedIn</name>
         <full_name>\Monk\Id::signedIn()</full_name>
-        <docblock line="284">
-          <description>Check whether there's a signed in user.</description>
+        <docblock line="296">
+          <description>Check whether there's a logged in user.</description>
           <long-description></long-description>
-          <tag name="return" line="284" description="Whether there's a signed in user." type="boolean">
+          <tag name="deprecated" line="296" description="1.1.0 Use `loggedIn`."/>
+          <tag name="return" line="296" description="Whether there's a logged in user." type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <markers/>
-    <source>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</source>
+    <source>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</source>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="global" full_name="global"/>
   <namespace name="Monk" full_name="Monk"/>
-  <deprecated count="0"/>
+  <deprecated count="1"/>
 </project>

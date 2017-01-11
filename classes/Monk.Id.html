@@ -35,7 +35,7 @@
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">1</span></a></li>
 </ul>
 </li>
 </ul></div>
@@ -66,9 +66,10 @@ already been loaded."><span class="description">Get or set a config value. Attem
 already been loaded.</span><pre>config()</pre></a></li>
 <li class="method public "><a href="#method_loadConfig" title="loadConfig() :: Load an INI config file for a specific environment."><span class="description">Load an INI config file for a specific environment.</span><pre>loadConfig()</pre></a></li>
 <li class="method public "><a href="#method_loadPayload" title="loadPayload() :: Load a payload from the client-side."><span class="description">Load a payload from the client-side.</span><pre>loadPayload()</pre></a></li>
-<li class="method public "><a href="#method_signedIn" title="signedIn() :: Check whether there's a signed in user."><span class="description">Check whether there's a signed in user.</span><pre>signedIn()</pre></a></li>
-<li class="method public "><a href="#method_userEmail" title="userEmail() :: Get the signed in user's email address."><span class="description">Get the signed in user's email address.</span><pre>userEmail()</pre></a></li>
-<li class="method public "><a href="#method_userId" title="userId() :: Get the signed in user's UUID."><span class="description">Get the signed in user's UUID.</span><pre>userId()</pre></a></li>
+<li class="method public "><a href="#method_loggedIn" title="loggedIn() :: Check whether there's a logged in user."><span class="description">Check whether there's a logged in user.</span><pre>loggedIn()</pre></a></li>
+<li class="method public "><a href="#method_signedIn" title="signedIn() :: Check whether there's a logged in user."><span class="description">Check whether there's a logged in user.</span><pre>signedIn()</pre></a></li>
+<li class="method public "><a href="#method_userEmail" title="userEmail() :: Get the logged in user's email address."><span class="description">Get the logged in user's email address.</span><pre>userEmail()</pre></a></li>
+<li class="method public "><a href="#method_userId" title="userId() :: Get the logged in user's UUID."><span class="description">Get the logged in user's UUID.</span><pre>userId()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -98,8 +99,8 @@ on the server-side.</p>
 <td><a href="">Monk Development, Inc.</a></td>
 </tr>
 <tr>
-<th>copyright</th>
-<td>2014 Monk Development, Inc.</td>
+<th>SuppressWarnings</th>
+<td>(PHPMD.ElseExpression)</td>
 </tr>
 <tr>
 <th>package</th>
@@ -175,38 +176,53 @@ automatically load the payload from. Leave <code>null</code> to read from global
   or it fails verification.</div>
 </div></div>
 </div>
-<a id="method_signedIn"></a><div class="element clickable method public method_signedIn " data-toggle="collapse" data-target=".method_signedIn .collapse" title="public">
-<h2>Check whether there's a signed in user.</h2>
-<pre>signedIn() : boolean</pre>
+<a id="method_loggedIn"></a><div class="element clickable method public method_loggedIn " data-toggle="collapse" data-target=".method_loggedIn .collapse" title="public">
+<h2>Check whether there's a logged in user.</h2>
+<pre>loggedIn() : boolean</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>boolean</code>Whether there's a signed in user.</div>
+<code>boolean</code>Whether there's a logged in user.</div>
+</div></div>
+</div>
+<a id="method_signedIn"></a><div class="element clickable method public method_signedIn " data-toggle="collapse" data-target=".method_signedIn .collapse" title="public">
+<h2>Check whether there's a logged in user.</h2>
+<pre>signedIn() : boolean</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>deprecated</th>
+<td>1.1.0 Use `loggedIn`.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether there's a logged in user.</div>
 </div></div>
 </div>
 <a id="method_userEmail"></a><div class="element clickable method public method_userEmail " data-toggle="collapse" data-target=".method_userEmail .collapse" title="public">
-<h2>Get the signed in user's email address.</h2>
+<h2>Get the logged in user's email address.</h2>
 <pre>userEmail() : string | null</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code><code>null</code>Email address if signed in user or `null` if no
-  signed in user.</div>
+<code>string</code><code>null</code>Email address if logged in user or `null` if no
+  logged in user.</div>
 </div></div>
 </div>
 <a id="method_userId"></a><div class="element clickable method public method_userId " data-toggle="collapse" data-target=".method_userId .collapse" title="public">
-<h2>Get the signed in user's UUID.</h2>
+<h2>Get the logged in user's UUID.</h2>
 <pre>userId() : string | null</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code><code>null</code>UUID if signed in user or `null` if no signed in
+<code>string</code><code>null</code>UUID if logged in user or `null` if no logged in
   user.</div>
 </div></div>
 </div>
@@ -224,8 +240,8 @@ automatically load the payload from. Leave <code>null</code> to read from global
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.7.0</a> and<br>
-            generated on 2014-09-03T11:36:56-04:00.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
+            generated on 2017-01-11T10:40:51-05:00.<br></footer></div>
 </div>
 </body>
 </html>
