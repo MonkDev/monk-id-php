@@ -8,7 +8,7 @@ general:
 
 test:
   override:
-    - vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
+    - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
     - composer quality
   post:
     - vendor/bin/coveralls -v
