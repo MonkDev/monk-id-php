@@ -39,7 +39,7 @@
     "phpdoc": "phpdoc",
     "phplint": "php -l lib/**/*",
     "phploc": "phploc lib/",
-    "phpmd": "phpmd lib/ text codesize,controversial,design,naming,unusedcode",
+    "phpmd": "phpmd lib/ text cleancode,codesize,controversial,design,naming,unusedcode",
     "quality": ["@phplint", "@phpcs", "@phpcpd", "@phploc", "@phpmd", "@security-checker"],
     "security-checker": "security-checker security:check",
     "test": "phpunit"

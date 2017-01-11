@@ -9,6 +9,7 @@ namespace Monk;
  * on the server-side.
  *
  * @author Monk Development, Inc.
+ * @SuppressWarnings(PHPMD.ElseExpression)
  */
 class Id
 {
@@ -119,6 +120,7 @@ class Id
      * @param  string|array $encodedPayload Encoded payload or cookies array to
      *   select the payload from.
      * @return string Encoded payload.
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     private static function selectPayload($encodedPayload = null)
     {
