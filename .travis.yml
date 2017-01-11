@@ -7,7 +7,7 @@ php:
 
 sudo: false
 
-install: composer install --dev --no-interaction
+install: composer install --no-interaction
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
