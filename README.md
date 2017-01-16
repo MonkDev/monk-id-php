@@ -3,7 +3,7 @@ Monk ID PHP
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/monkdev/monk-id.svg?style=flat)](https://packagist.org/packages/monkdev/monk-id)
 [![Build Status](https://img.shields.io/travis/MonkDev/monk-id-php/dev.svg?style=flat)](https://travis-ci.org/MonkDev/monk-id-php)
-[![Coverage Status](https://img.shields.io/coveralls/MonkDev/monk-id-php/dev.svg?style=flat)](https://coveralls.io/r/MonkDev/monk-id-php?branch=dev)
+[![codecov](https://codecov.io/gh/MonkDev/monk-id-php/branch/dev/graph/badge.svg)](https://codecov.io/gh/MonkDev/monk-id-php)
 [![Dependency Status](https://img.shields.io/gemnasium/MonkDev/monk-id-php.svg?style=flat)](https://gemnasium.com/MonkDev/monk-id-php)
 
 Integrate Monk ID authentication and single sign-on for apps and websites on the
@@ -106,8 +106,8 @@ Continuous integration is setup through [Travis CI](https://travis-ci.org/MonkDe
 to run the tests against PHP v5.6, v7.0, and v7.1. ([Circle CI](https://circleci.com/gh/MonkDev/monk-id-php)
 is also setup to run the tests against PHP v5.6, but is backup for now until
 multiple versions can easily be specified.) The code coverage results are sent
-to [Coveralls](https://coveralls.io/r/MonkDev/monk-id-php) during CI for
-tracking over time. Badges for both are dispayed at the top of this README.
+to [Codecov](https://codecov.io/gh/MonkDev/monk-id-php) during CI for tracking
+over time. Badges for both are dispayed at the top of this README.
 
 While the test suite is complete, it's not a bad idea to also test changes
 manually in real-world integrations.
